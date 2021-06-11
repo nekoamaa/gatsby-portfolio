@@ -1,11 +1,13 @@
-  
+
 export default {
-  primary: "#ff2d2d",
+  primary: "#ed835f",
+  secondary: "#ececec",
   inverse: "#fff",
   // colors
   darkGrey: "#333447",
   black: "#000",
-
+  white: "#ececec;",
+  lightGrey: "#566b83",
   // grid
   width: "96%",
   wrapperWidth: "65rem",

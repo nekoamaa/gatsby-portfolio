@@ -1,10 +1,10 @@
 module.exports = {
-  SiteTitle: 'Abdelali',
+  SiteTitle: 'nekoama',
   Sitelogo: '#',
-  SiteLogoText: 'Abdelali',
-  SiteAuthor: 'Abdelali Dahir',
+  SiteLogoText: 'nekoama',
+  SiteAuthor: 'nekoama',
   SiteDescription: 'Front End Developer',
-  defaultDescription: 'Software engineer!', 
+  defaultDescription: 'Software engineer!',
   githubApiQuery: `query ($number_of_repos: Int!) {
     viewer {
       name
@@ -40,7 +40,7 @@ module.exports = {
   }`,
   githubApiVariables: {
     number_of_repos: 12,
-  }, 
+  },
   SiteSocialLinks: {
     twitter: 'https://twitter.com/AbdaliDahir',
     github: 'https://github.com/AbdaliDahir',
