@@ -46,7 +46,6 @@ export const SubTitle = styled.h2`
   }
 `
 export const SocialIcons = styled.div`
-  padding-top: 10px;
   svg {
     margin-right: 20px;
   }
