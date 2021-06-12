@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import variables from '../../../data/variables';
 
 export const FooterStyle = styled.footer`
-	padding-top: 1rem;
-  	padding-bottom: 8rem;
+	padding-top: 2rem;
+  	padding-bottom: 1rem;
 	z-index: 0;
 	position: relative;
-	text-align: left;
+	text-align: center;
 	@media(min-width: ${variables.breakpointPhone}) {
 		background: linear-gradient(to top,rgb(0 0 0 / 20%),transparent 50%);
 	}
@@ -42,7 +42,7 @@ export const CopyRight = styled.p`
 	letter-spacing:1px;
 	color: #ececec;
 	span a {
-		color: #7026B9;
+		color: #566b83;
 	}
 `
 export const FooterBody = styled.div`
@@ -58,7 +58,6 @@ export const FooterText = styled.div`
 export const FooterSocialMedia = styled.ul`
 	list-style: none;
 	padding-left: 0;
-	text-align: center;
 	@media(max-width: ${variables.breakpointPhone}) {
 		display: flex;
 		align-items: center;
@@ -76,5 +75,4 @@ export const MediaLink = styled.a`
   	text-transform: capitalize;
   	font-family: "GT-Walsheim-Pro-Bold";
 	color: ${variables.primary};
-
 `
