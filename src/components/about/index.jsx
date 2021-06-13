@@ -25,8 +25,8 @@ const About = () => {
               <SubTitle> Anime & Manga Enthusiast </SubTitle>
             </div>
             <div>
-              <Title> Welcome to My Portfolio! </Title>
-              <Text> Hey there, I'm nekoama and I am a beginner front end web developer hailing from <b className="text-primary lined-link">North America</b> living in Los Angeles. </Text>
+              <Title> Hey there, I'm nekoama </Title>
+              <Text> Welcome to my portfolio! To start things off,  I am a beginner front end web developer hailing from <b className="text-primary lined-link">North America</b> living in Los Angeles. </Text>
               <Text>
                 I am a high school student with loads of free time on their hands. During my free
                 time, I like to watch anime, read manga, play some video games, or design some cool websites.
