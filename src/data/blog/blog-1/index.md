@@ -1,7 +1,7 @@
 ---
 title: thay the frameworks really destroyed web performance 🤔 ?
-categories: ['frameworks', 'css', 'performance']
-image: './e4d5ed47ee58aa859995cae2a4e83221.webp'
+categories: ["frameworks", "css", "performance"]
+image: "./e4d5ed47ee58aa859995cae2a4e83221.webp"
 imageCredit: https://dribbble.com/shots/13972666-faces
 date: "2015-05-01T22:12:03.284Z"
 time: 3
@@ -24,3 +24,7 @@ Oh, and here's a great quote from this Wikipedia on
 > firm-textured, round yolk that is bright orange-red in color.
 
 ![Chinese Salty Egg](./e4d5ed47ee58aa859995cae2a4e83221.webp)
+
+```js
+const saltyDuckEgg = "chinese perserved food product"
+```
