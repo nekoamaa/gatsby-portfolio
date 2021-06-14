@@ -8,7 +8,7 @@ import { HomeSection, Title, Text, Avatar } from '../components/styled/home';
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "yui.jpg" }) {
+      placeholderImage: file(relativePath: { eq: "oregairu.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 550) {
             ...GatsbyImageSharpFluid
@@ -24,13 +24,10 @@ const IndexPage = () => {
         <ContainerLayout>
           <HomeSection>
             <div>
-              <Title>Yahallo!</Title>
-              <Text>Nekoama here. Feel free to browse thgough my portoflio and if possible provide dsome feedback! </Text>
+              <Title>Hey there, nekoama here.</Title>
+              <Text>Welcome to my portoflio! Feel free to browse through my site and let me know what you think. </Text>
             </div>
-
-            <div>
-              <Avatar fluid={data.placeholderImage.childImageSharp.fluid} alt="user photo" />
-            </div>
+            <Avatar fluid={data.placeholderImage.childImageSharp.fluid} alt="user photo" />
           </HomeSection>
         </ContainerLayout>
       </SectionIntro>

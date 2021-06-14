@@ -158,4 +158,17 @@ export const GlobalStyle = createGlobalStyle`
 .error__emoji {
   width: 30vw;
 }
+
+.gradient-text {
+  &.active {
+    background-image: linear-gradient(45deg, #f78d14, #fba182);
+    background-clip: text;
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  }
+}
 `

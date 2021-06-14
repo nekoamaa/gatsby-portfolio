@@ -11,7 +11,7 @@ const Navbar = ({ siteTitle }) => (
       <NavbarElement>
         <NavbarLogo>
           <h3>
-            <Link to="/">
+            <Link to="/" className="gradient-text" activeClassName="active">
               <Smile className="align-middle" /> <span className="align-middle"> {siteTitle} </span>
             </Link>
           </h3>
