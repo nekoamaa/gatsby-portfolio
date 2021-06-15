@@ -3,11 +3,12 @@ import styled from "styled-components";
 import variables from '../../data/variables';
 
 export const HomeSection = styled.div`
-    text-align: center;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
     @media only screen and (min-width: ${variables.breakpointLarge}) {
-    display: grid;
-    grid-template-columns: 1fr 1.25fr;
-    grid-gap: 14rem;
+    display: flex;
+    flex-direction: row;
     text-align: left;
 }
 `
