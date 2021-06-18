@@ -110,6 +110,9 @@ export const GlobalStyle = createGlobalStyle`
     .text-primary {
       color: ${variables.primary};
     }
+    .text-secondary {
+      color: ${variables.secondary};
+    }
     .align-middle {
       vertical-align: middle;
     }
