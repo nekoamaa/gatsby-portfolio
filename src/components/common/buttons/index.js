@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import colors from "../../../data/variables";
+import variables from '../../../data/variables';
 
 export const ButtonDefault = styled.a`
   cursor: pointer;
@@ -40,7 +41,7 @@ export const ButtonDefault = styled.a`
 `;
 
 export const ReadMore = styled.span`
-  color: #000;
+  color: ${variables.secondary};;
   font-size: 1rem;
   text-transform: inherit;
   letter-spacing: .7px;

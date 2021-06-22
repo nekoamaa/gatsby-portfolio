@@ -24,6 +24,7 @@ export const Title = styled.h1`
 export const SubTitle = styled.h3`
   font-size: 2rem;
   text-transform: capitalize;
+  color: ${variables.secondary};
   font-family: "GT-Walsheim-Pro-Bold";
 `
 export const Text = styled.p`
@@ -59,6 +60,7 @@ export const WorkPost = styled.article`
   grid-template-columns: 1fr 1fr;
   align-items: center;
   margin-bottom: 5rem;
+  color: ${variables.secondary};
   grid-template-areas: 
     "header header header header"
     "main main . sidebar"

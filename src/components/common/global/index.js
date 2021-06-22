@@ -19,6 +19,7 @@ export const GlobalStyle = createGlobalStyle`
       font-family: 'GT-Walsheim-Pro-Regular';
       margin: 0;
       background-color: #191c24;
+      color: ${variables.secondary};
     }
     main {
       display: block;
