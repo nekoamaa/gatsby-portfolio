@@ -16,6 +16,7 @@ export const Title = styled.h1`
   font-family: "GT-Walsheim-Pro-Bold";
   font-size: 2rem;
   text-transform: capitalize;
+  grid-area: header;
   @media(max-width: ${variables.breakpointPhone}) {
     font-size: 1.5rem;
   }
@@ -24,12 +25,11 @@ export const SubTitle = styled.h3`
   font-size: 2rem;
   text-transform: capitalize;
   font-family: "GT-Walsheim-Pro-Bold";
-  text-decoration: underline;
 `
 export const Text = styled.p`
   font-size: .98rem;
   line-height: 2;
-  color: #000000;
+  color: ${variables.secondary};
   margin-top: 2rem;
   text-align: justify;
   @media(max-width: ${variables.breakpointPhone}) {
@@ -59,6 +59,10 @@ export const WorkPost = styled.article`
   grid-template-columns: 1fr 1fr;
   align-items: center;
   margin-bottom: 5rem;
+  grid-template-areas: 
+    "header header header header"
+    "main main . sidebar"
+    "footer footer footer footer";
   @media(max-width: ${variables.breakpointPhone}) {
     grid-template-columns: 1fr;
     border: 10px solid #fff;
