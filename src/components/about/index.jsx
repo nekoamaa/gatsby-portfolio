@@ -26,17 +26,17 @@ const About = () => {
             </div>
             <div>
               <Title> Hey there, I'm nekoama </Title>
-              <Text> Welcome to my portfolio! To start things off,  I am a beginner front end web developer hailing from <b className="text-primary lined-link">North America</b> living in Los Angeles. </Text>
+              <Text> Welcome to my site! To start things off,  I am a beginner front end web developer based in  <b className="text-primary text-highlight">California</b>.</Text>
               <Text>
-                I am a high school student with loads of free time on their hands. During my free
-                time, I like to watch anime, read manga, play some video games, or design some cool websites.
+                I am a <b className="text-primary text-highlight">high school student</b> with loads of free time on their hands. During my free
+                time, I like to watch <b className="text-primary text-highlight">anime</b>, read <b className="text-primary text-highlight">manga</b>, play some <b className="text-primary text-highlight">video games</b>, or design some cool <b className="text-primary text-highlight">websites</b>.
               </Text>
               <Text>
-                I am an anime and manga enthusiast with over 1200 hours watched and 10000 chapters read. Some of my favorite anime include
+                I am an anime and manga enthusiast with over <b className="text-primary text-highlight">1200 hours</b> watched and <b className="text-primary text-highlight">10000 chapters</b> read. These are some noob stats compared to others, but I take pride in them. Some of my favorite anime include
                 Steins;Gate, Oregairu, Hyouka, and ReLife.
               </Text>
               <Text>
-                View my socials for more information!
+                Check out my socials for more information!
               </Text>
               <SocialIcons>
                 <a href="https://github.com/nekoamaa" aria-label="Github" target="blank_"><svg width="65" height="65" fill="#ececec" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg></a>

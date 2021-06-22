@@ -27,7 +27,7 @@ const IndexPage = () => {
           <HomeSection>
             <div>
               <Title>Hey there, nekoama here.</Title>
-              <Text>Welcome to my portoflio! Feel free to browse through my site and let me know what you think. </Text>
+              <Text>Welcome to my site! Feel free to browse through my site and let me know what you think. </Text>
               <Link to="/about"><ButtonDefault>Learn more about me!</ButtonDefault></Link>
             </div>
             <Avatar fluid={data.placeholderImage.childImageSharp.fluid} alt="user photo" />
