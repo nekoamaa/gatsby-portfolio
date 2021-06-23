@@ -14,7 +14,7 @@ const BlogIndex = ({ data }) => {
   return (
     <>
       <Layout>
-        <SEO title="Blog Home Page" />
+        <SEO title="Weekly Discussions" />
         <Intro>
           <ContainerLayout>
 
