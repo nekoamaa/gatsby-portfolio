@@ -14,12 +14,12 @@ const BlogIndex = ({ data }) => {
   return (
     <>
       <Layout>
-        <SEO title="Weekly Discussions" />
+        <SEO title="Blog" />
         <Intro>
           <ContainerLayout>
 
             <SubTitle>
-              Weekly Discussions
+              Blog
             </SubTitle>
 
             <ContainerLayout className="wrapper">

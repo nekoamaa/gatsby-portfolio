@@ -20,8 +20,8 @@ const Navbar = ({ siteTitle }) => (
           <NavbarList>
             <li><Link to="/about" className="lined-link" activeClassName="active"> <User /> <span> About </span> </Link></li>
             <li><Link to="/works" className="lined-link" activeClassName="active"> <Briefcase /> <span> Reviews </span> </Link></li>
-            <li><Link to="/blog" className="lined-link" activeClassName="active"> <Feather /> <span> Weekly </span> </Link></li>
-            <li><Link to="/repositories" className="lined-link" activeClassName="active"> <GitHub /> <span> Favorites </span> </Link></li>
+            <li><Link to="/blog" className="lined-link" activeClassName="active"> <Feather /> <span> Blog </span> </Link></li>
+            <li><Link to="/repositories" className="lined-link" activeClassName="active"> <GitHub /> <span> Tier List </span> </Link></li>
           </NavbarList>
         </div>
       </NavbarElement>

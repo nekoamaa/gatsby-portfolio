@@ -9,37 +9,6 @@ module.exports = {
     author: data.SiteAuthor,
   },
   plugins: [
-    {
-      resolve: 'gatsby-source-anilist',
-      options: {
-        queries: [
-          `
-            {
-              MediaListCollection(userId: 122315, type:ANIME) {
-                lists {
-                  name
-                  entries {
-                    id
-                    media {
-                      id
-                      title {
-                        romaji
-                        english
-                        native
-                        userPreferred
-                      }
-                    }
-                  }
-                  isCustomList
-                  isSplitCompletedList
-                  status
-                }
-              }
-            }
-          `
-        ]
-      }
-    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,

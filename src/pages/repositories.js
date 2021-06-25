@@ -15,7 +15,7 @@ const RepositoryPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Favorites" />
+      <SEO title="Tier List" />
       <ContainerLayout>
         <SectionIntro>
           <RepoInfo>

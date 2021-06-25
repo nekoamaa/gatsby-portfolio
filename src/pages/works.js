@@ -24,7 +24,7 @@ const WorkIndex = ({ data }) => {
                 const title = node.frontmatter.title || node.fields.slug
                 return (
                   <WorkPost key={node.fields.slug}>
-                    <div className="content">
+                    <div>
                       <header>
                         <Title>
                           <Link className="text-primary lined-link" style={{ boxShadow: `none` }} to={node.fields.slug}>

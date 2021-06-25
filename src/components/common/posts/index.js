@@ -61,10 +61,6 @@ export const WorkPost = styled.article`
   align-items: center;
   margin-bottom: 5rem;
   color: ${variables.secondary};
-  grid-template-areas: 
-    "header header header header"
-    "main main . sidebar"
-    "footer footer footer footer";
   @media(max-width: ${variables.breakpointPhone}) {
     grid-template-columns: 1fr;
     border: 10px solid #fff;
