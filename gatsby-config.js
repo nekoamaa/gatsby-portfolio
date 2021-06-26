@@ -14,6 +14,14 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      resolve: "gatsby-source-graphql",
+      options: {
+        url: "https://graphql.anilist.co",
+        typeName: "AniList",
+        fieldName: "anilist",
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `blog`,

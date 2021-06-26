@@ -21,6 +21,7 @@
         "gatsby-source-anilist": "^0.1.0",
         "gatsby-source-filesystem": "^2.3.11",
         "gatsby-source-github-api": "^0.2.1",
+        "gatsby-source-graphql": "^3.8.0",
         "gatsby-transformer-remark": "^2.8.27",
         "gatsby-transformer-sharp": "^2.5.5",
         "node-sass": "^4.14.1",
