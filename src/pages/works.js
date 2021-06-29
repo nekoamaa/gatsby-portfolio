@@ -3,7 +3,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
-import { Tag, ContainerLayout, WorkPost, Category, Intro, SubTitle, Title, Text } from "../components/common"
+import { Tag, ContainerLayout, WorkPost, Category, Intro, SubTitle, Title, Text, ReviewPost } from "../components/common"
 
 const WorkIndex = ({ data }) => {
   const works = data.allMarkdownRemark.edges
@@ -21,11 +21,11 @@ const WorkIndex = ({ data }) => {
 
           {reviews.map((review) => {
             return (
-              <div>
-                <h1>{review.media.title.english}</h1>
-                {review.summary}
-
-              </div>
+              <ReviewPost>
+                <Title>{review.media.title.userPreferred} - {review.createdAt}</Title>
+                <img src={review.media.coverImage.large} alt="media image" />
+                <Text>{review.summary}</Text>
+              </ReviewPost>
             )
           })}
 
@@ -73,7 +73,7 @@ export const pageQuery = graphql`
           total
           perPage
         }
-        reviews(userId: 567710) {
+        reviews(userId: 567710, sort: CREATED_AT_DESC) {
           media {
             title {
               romaji
@@ -81,9 +81,19 @@ export const pageQuery = graphql`
               native
               userPreferred
             }
+            coverImage {
+              extraLarge
+              large
+              medium
+              color
+            }
           }
           summary
           score
+          rating
+          ratingAmount
+          createdAt
+          body
         }
       }
     }

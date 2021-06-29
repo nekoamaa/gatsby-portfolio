@@ -15,7 +15,6 @@ export const HeaderIntro = styled.header`
 export const Title = styled.h1`
   font-family: "GT-Walsheim-Pro-Bold";
   font-size: 2rem;
-  text-transform: capitalize;
   grid-area: header;
   @media(max-width: ${variables.breakpointPhone}) {
     font-size: 1.5rem;
@@ -28,11 +27,10 @@ export const SubTitle = styled.h3`
   font-family: "GT-Walsheim-Pro-Bold";
 `
 export const Text = styled.p`
-  font-size: .98rem;
+  font-size: 1.2rem;
   line-height: 2;
   color: ${variables.secondary};
-  margin-top: 2rem;
-  text-align: justify;
+  grid-area: content;
   @media(max-width: ${variables.breakpointPhone}) {
     margin-top: 1rem;
     font-size: .8rem;
@@ -96,6 +94,23 @@ export const WorkPost = styled.article`
     }
   }
 `
+export const ReviewPost = styled.article`
+  display: grid;
+  grid-template-columns: 1fr 3.5fr;
+  grid-template-areas: 
+    "header header"
+    "image content";
+  margin-bottom: 5rem;
+  color: ${variables.secondary};
+  img {
+    margin: 20px 30px 0 0;
+    width: 200px;
+    object-fit: contain;
+    align-self: flex-start;
+    grid-area: image;
+  }
+`
+
 export const Category = styled.span`
   font-family: "GT-Walsheim-Pro-Bold";
   color: ${variables.primary};
