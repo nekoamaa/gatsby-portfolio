@@ -3,7 +3,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
-import { Tag, ContainerLayout, WorkPost, Category, Intro, SubTitle, Title, Text, ReviewPost } from "../components/common"
+import { Tag, ContainerLayout, WorkPost, Category, Intro, SubTitle, Title, Text, ReviewPost, SubText } from "../components/common"
+import { ThumbsUp } from 'react-feather'
 
 const WorkIndex = ({ data }) => {
   const works = data.allMarkdownRemark.edges
@@ -22,9 +23,13 @@ const WorkIndex = ({ data }) => {
           {reviews.map((review) => {
             return (
               <ReviewPost>
-                <Title>{review.media.title.userPreferred} - {review.createdAt}</Title>
-                <img src={review.media.coverImage.large} alt="media image" />
-                <Text>{review.summary}</Text>
+                <img src={review.media.coverImage.large} alt="anime" />
+                <div>
+                  <Title>{review.media.title.userPreferred} <span><ThumbsUp />{review.rating}</span></Title>
+                  <SubText>Posted on {review.createdAt}</SubText>
+                  <Text>"{review.summary}"</Text>
+                  <p>See full review</p>
+                </div>
               </ReviewPost>
             )
           })}
