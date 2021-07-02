@@ -23,13 +23,12 @@ const WorkIndex = ({ data }) => {
           {reviews.map((review) => {
             return (
               <ReviewPost>
-                <img src={review.media.coverImage.large} alt="anime" />
-                <div>
-                  <Title>{review.media.title.userPreferred} <span><ThumbsUp />{review.rating}</span></Title>
-                  <SubText>Posted on {review.createdAt}</SubText>
-                  <Text>"{review.summary}"</Text>
-                  <p>See full review</p>
-                </div>
+                <img src={review.media.coverImage.extraLarge} alt="anime" />
+
+                <Title>{review.media.title.userPreferred}<span><ThumbsUp />{review.rating}</span><SubText>Posted on {review.createdAt}</SubText></Title>
+
+                <Text>{review.body}<a href="#">See full review</a></Text>
+
               </ReviewPost>
             )
           })}

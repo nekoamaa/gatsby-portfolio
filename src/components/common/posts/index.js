@@ -15,7 +15,7 @@ export const HeaderIntro = styled.header`
 export const Title = styled.h1`
   font-family: "GT-Walsheim-Pro-Bold";
   font-size: 2rem;
-  grid-area: content;
+  grid-area: header;
   > span{
     float: right;
   }
@@ -32,6 +32,9 @@ export const Text = styled.p`
   font-size: 1.2rem;
   color: ${variables.secondary};
   grid-area: content;
+  > a {
+    color: ${variables.primary};
+  }
   @media(max-width: ${variables.breakpointPhone}) {
     margin-top: 1rem;
     font-size: .8rem;
@@ -39,7 +42,8 @@ export const Text = styled.p`
 `
 export const SubText = styled.p`
   font-size: 1.2rem;
-  margin-top: -20px;
+  grid-area: header;
+  margin-top: -2px;
 `
 
 export const SmallText = styled.small`
@@ -95,16 +99,18 @@ export const WorkPost = styled.article`
   }
 `
 export const ReviewPost = styled.article`
+  word-wrap: break-word;
+  word-break: break-word;
   display: grid;
   grid-template-columns: 1fr 3.5fr;
   grid-template-areas: 
-    "image content"
+    "image header"
     "image content";
   margin-bottom: 5rem;
   color: ${variables.secondary};
   img {
     margin: 20px 30px 0 0;
-    width: 200px;
+    width: 225px;
     object-fit: contain;
     align-self: flex-start;
     grid-area: image;
