@@ -58,7 +58,7 @@ export const SmallText = styled.small`
 `
 
 export const WorkPost = styled.article`
-  display: grid;
+  display: flex;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   margin-bottom: 5rem;
@@ -127,4 +127,13 @@ export const Category = styled.span`
   padding: .5rem 1rem;
   margin-right: 1rem;
   border: 3px solid ${variables.primary};
+`
+export const BlogLayout = styled.div`
+  max-width: 70em;
+
+  grid-template-columns: auto auto;
+  @media (min-width: ${variables.breakpointTablet}) {
+    display: grid;
+    padding: 0px 1.5em;
+  }
 `
