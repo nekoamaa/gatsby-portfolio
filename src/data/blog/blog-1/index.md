@@ -24,7 +24,3 @@ Oh, and here's a great quote from this Wikipedia on
 > firm-textured, round yolk that is bright orange-red in color.
 
 ![Chinese Salty Egg](./e4d5ed47ee58aa859995cae2a4e83221.webp)
-
-```js
-const saltyDuckEgg = "chinese perserved food product"
-```

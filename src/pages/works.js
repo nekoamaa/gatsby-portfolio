@@ -24,11 +24,11 @@ const WorkIndex = ({ data }) => {
             return (
               <ReviewPost>
                 <img src={review.media.coverImage.extraLarge} alt="anime" />
-
-                <Title>{review.media.title.userPreferred}<span><ThumbsUp />{review.rating}</span><SubText>Posted on {review.createdAt}</SubText></Title>
-
-                <Text>{review.body}<a href="#">See full review</a></Text>
-
+                <Title>
+                  {review.media.title.userPreferred}<span><span><ThumbsUp /></span>{review.rating}</span>
+                  <SubText>Posted on {review.createdAt}</SubText>
+                </Title>
+                <Text><span>{review.body}</span><a href="#">See full review</a></Text>
               </ReviewPost>
             )
           })}

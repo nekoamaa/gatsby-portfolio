@@ -18,6 +18,9 @@ export const Title = styled.h1`
   grid-area: header;
   > span{
     float: right;
+    span {
+      margin-right: 6px;
+    }
   }
   @media(max-width: ${variables.breakpointPhone}) {
     font-size: 1.5rem;
@@ -34,6 +37,13 @@ export const Text = styled.p`
   grid-area: content;
   > a {
     color: ${variables.primary};
+  }
+  span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* number of lines to show */
+    -webkit-box-orient: vertical;
   }
   @media(max-width: ${variables.breakpointPhone}) {
     margin-top: 1rem;
@@ -76,7 +86,8 @@ export const ReviewPost = styled.article`
   word-wrap: break-word;
   word-break: break-word;
   display: grid;
-  grid-template-columns: 1fr 3.5fr;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 100px;
   grid-template-areas: 
     "image header"
     "image content";

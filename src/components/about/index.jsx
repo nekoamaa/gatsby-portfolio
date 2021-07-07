@@ -13,6 +13,36 @@ const About = () => {
           }
         }
       }
+      anilist {
+        Page(page: 1, perPage: 10) {
+          pageInfo {
+            total
+            perPage
+          }
+          reviews(userId: 567710, sort: CREATED_AT_DESC) {
+            media {
+              title {
+                romaji
+                english
+                native
+                userPreferred
+              }
+              coverImage {
+                extraLarge
+                large
+                medium
+                color
+              }
+            }
+            summary
+            score
+            rating
+            ratingAmount
+            createdAt
+            body
+          }
+        }
+      }
     }
   `)
   return (
@@ -25,15 +55,14 @@ const About = () => {
               <SubTitle> Anime & Manga Enthusiast </SubTitle>
             </div>
             <div>
-              <Title> Hey there, I'm nekoama </Title>
-              <Text> Welcome to my site! To start things off,  I am a beginner front end web developer based in  <b className="text-primary text-highlight">California</b>.</Text>
+              <Title> Hi, I'm nekoama </Title>
               <Text>
-                I am a <b className="text-primary text-highlight">high school student</b> with loads of free time on their hands. During my free
+                I am a <b className="text-primary text-highlight">high school student</b> with loads of free time on my hands. During my free
                 time, I like to watch <b className="text-primary text-highlight">anime</b>, read <b className="text-primary text-highlight">manga</b>, play some <b className="text-primary text-highlight">video games</b>, or design some cool <b className="text-primary text-highlight">websites</b>.
               </Text>
               <Text>
-                I am an anime and manga enthusiast with over <b className="text-primary text-highlight">1200 hours</b> watched and <b className="text-primary text-highlight">10000 chapters</b> read. These are some noob stats compared to others, but I take pride in them. Some of my favorite anime include
-                Steins;Gate, Oregairu, Hyouka, and ReLife.
+                I am an anime and manga enthusiast with over <b className="text-primary text-highlight">1200 hours</b> watched and <b className="text-primary text-highlight">10000 chapters</b> read. I have consumed quite a bit of anime and manga if I do say so myself. Some of my favorite anime include
+                Steins;Gate, Oregairu, Hyouka, and ReLife. For mangas, I enjoyed reading.
               </Text>
               <Text>
                 Check out my socials for more information!
