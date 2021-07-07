@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import variables from '../../../data/variables';
 
 export const Intro = styled.div`
-  padding: 8rem 0 4rem 0;
+  padding: 4rem 0 4rem 0;
   font-family: "GT-Walsheim-Pro-Regular";
 `;
 export const HeaderIntro = styled.header`
@@ -61,40 +61,14 @@ export const WorkPost = styled.article`
   display: flex;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  margin-bottom: 5rem;
   color: ${variables.secondary};
   @media(max-width: ${variables.breakpointPhone}) {
     grid-template-columns: 1fr;
-    border: 10px solid #fff;
-    border-radius: .9rem;
-    box-shadow: 0 17px 56px rgba(125,127,129,.17);
 	}
   > div.content {
     padding: 2rem 3rem;
     @media(max-width: ${variables.breakpointPhone}) {
       padding: 1rem 1rem;
-    }
-  }
-  > div.media {
-    text-align: center;
-    > .image-wrapper {
-      margin-bottom: .5rem;
-      max-height: 400px;
-      overflow: hidden;
-      @media(min-width: ${variables.breakpointPhone}) {
-        border: 10px solid #fff;
-        border-radius: .9rem;
-        box-shadow: 0 17px 56px rgba(125,127,129,.17);
-      }
-      > a > div {
-        transition: all 800ms ease-in-out;
-      }
-    }
-  }
-  &:hover {
-    cursor: pointer;
-    > div.media > .image-wrapper > a > div {
-      transform: scale(1.2) rotate(8deg);
     }
   }
 `
@@ -129,8 +103,6 @@ export const Category = styled.span`
   border: 3px solid ${variables.primary};
 `
 export const BlogLayout = styled.div`
-  max-width: 70em;
-
   grid-template-columns: auto auto;
   @media (min-width: ${variables.breakpointTablet}) {
     display: grid;

@@ -16,18 +16,13 @@ const BlogIndex = ({ data }) => {
     <>
       <Layout>
         <SEO title="Blog" />
+
         <Intro>
-
-          <SubTitle>
-            Blog
-          </SubTitle>
-
           <BlogLayout>
 
             {posts.map(({ node }, i) => {
               return i === 0 ? (
                 <div style={{ gridArea: "1 / 1 / span 2 / span 2" }}>
-
                   <BlogPost node={node}></BlogPost>
                 </div>
               ) : (
