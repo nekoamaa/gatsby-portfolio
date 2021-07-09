@@ -1,9 +1,8 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-import { Calendar, Clock } from 'react-feather'
+import { Link } from "gatsby"
+import { Calendar } from 'react-feather'
 import Img from "gatsby-image"
-import { ContainerLayout, WorkPost, Intro, SubTitle, Title, Text, HeaderIntro, SubText, SmallText, UnderLink, ReadMore, BlogLayout } from "../common"
-
+import { WorkPost, Title, Text, SmallText, ReadMore } from "../common"
 
 function BlogPost({ node }) {
     const title = node.frontmatter.title || node.fields.slug

@@ -3,7 +3,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
-import { Tag, ContainerLayout, WorkPost, Category, Intro, SubTitle, Title, Text, ReviewPost, SubText } from "../components/common"
+import { WorkPost, Intro, SubTitle, Title, Text, ReviewPost, SubText } from "../components/common"
 import { ThumbsUp } from 'react-feather'
 
 const WorkIndex = ({ data }) => {
@@ -28,7 +28,7 @@ const WorkIndex = ({ data }) => {
                   {review.media.title.userPreferred}<span><span><ThumbsUp /></span>{review.rating}</span>
                   <SubText>Posted on {review.createdAt}</SubText>
                 </Title>
-                <Text><span>{review.body}</span><a href="#">See full review</a></Text>
+                <Text><span>{review.body}</span><a href="">See full review</a></Text>
               </ReviewPost>
             )
           })}
@@ -131,6 +131,5 @@ export const pageQuery = graphql`
         }
       }
     }
-
   }
 `

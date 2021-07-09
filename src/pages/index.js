@@ -26,7 +26,7 @@ const IndexPage = () => {
         <ContainerLayout>
           <HomeSection>
             <div>
-              <Title>Hey there, nekoama here.</Title>
+              <Title>Hi, I'm nekoama.</Title>
               <Text>Welcome to my site! Feel free to browse through my site and let me know what you think. </Text>
               <Link to="/about"><ButtonDefault>Learn more about me!</ButtonDefault></Link>
             </div>

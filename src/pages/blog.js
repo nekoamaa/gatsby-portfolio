@@ -1,13 +1,9 @@
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Link, graphql } from "gatsby"
-import { Calendar, Clock } from 'react-feather'
-import Img from "gatsby-image"
+import { graphql } from "gatsby"
 import BlogPost from "../components/blogPost"
-import { ContainerLayout, WorkPost, Intro, SubTitle, Title, Text, HeaderIntro, SubText, SmallText, UnderLink, ReadMore, BlogLayout } from "../components/common"
-import CategoriesTags from '../components/CategoriesTags/categoriesTags';
-import kebabCase from "lodash/kebabCase"
+import { Intro, BlogLayout } from "../components/common"
 
 const BlogIndex = ({ data }) => {
   const posts = data.allMarkdownRemark.edges
