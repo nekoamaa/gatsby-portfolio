@@ -5,13 +5,43 @@ import { SectionIntro, ContainerLayout } from "../common";
 
 const About = () => {
   const data = useStaticQuery(graphql`
-    query {
+    query {   
       placeholderImage: file(relativePath: { eq: "yui.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 550) {
             ...GatsbyImageSharpFluid
           }
         }
+      }
+      anilist {
+        User(id: 567710) {
+          statistics {
+            anime {
+              count
+              episodesWatched
+            }
+            manga {
+              count
+              chaptersRead
+            }
+          }
+          favourites {
+            anime(page: 1, perPage: 10) {
+              nodes {
+                title {
+                  userPreferred
+                }
+              }
+            }
+            manga(page: 1, perPage: 10) {
+              nodes {
+                title {
+                  userPreferred
+                }
+              }
+            }
+          }
+        } 
       }
     }
   `)
@@ -32,11 +62,10 @@ const About = () => {
                 play some <b>video games</b>, or design some cool <b>websites</b>.
               </Text>
               <Text>
-                I am an anime and manga enthusiast with over <b>1200 hours</b> watched
-                and <b>10000 chapters</b> read. I have consumed quite a bit of anime and manga
-                if I do say so myself. Some of my favorite anime include
-                'Steins;Gate', 'Oregairu', 'Hyouka', and 'ReLife'. For manga, I enjoyed reading 'Haite Kudasai, Takamine-san',
-                'Amagami-san Chi no Enmusubi', 'Kaette kudasai! Akutsu-san', and 'Horimiya'.
+                I am an anime and manga enthusiast with <b>{data.anilist.User.statistics.anime.count}</b> anime watched
+                and <b>{data.anilist.User.statistics.manga.count}</b> manga read. I have consumed quite a bit of anime and manga
+                if I do say so myself. Some of my favorite anime Winclude {data.anilist.User.favourites.anime.nodes.map(node => node.title.userPreferred).join(", ")}.
+                For manga, I enjoyed reading {data.anilist.User.favourites.manga.nodes.map(node => node.title.userPreferred).join(", ")}
               </Text>
             </div>
           </AboutSection>

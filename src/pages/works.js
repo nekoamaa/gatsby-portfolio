@@ -100,8 +100,7 @@ export const pageQuery = graphql`
           body
         }
       }
-    }
-    
+    }  
     site {
       siteMetadata {
         title
