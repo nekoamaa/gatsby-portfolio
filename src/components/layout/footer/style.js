@@ -30,10 +30,8 @@ export const FooterStyle = styled.footer`
 export const SubRight = styled.p`
 	font-size: 1rem;
 	line-height: 1.8;
-	letter-spacing:2px;
 	color: #ececec;
-	text-transform: capitalize;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	font-family: "GT-Walsheim-Pro-Bold";
 `
 export const CopyRight = styled.p`
@@ -42,7 +40,7 @@ export const CopyRight = styled.p`
 	letter-spacing:1px;
 	color: #ececec;
 	span a {
-		color: #566b83;
+		color: #7026B9;
 	}
 `
 export const FooterBody = styled.div`

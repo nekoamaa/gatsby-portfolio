@@ -6,6 +6,7 @@
     "author": "nekoama",
     "dependencies": {
         "@icons-pack/react-simple-icons": "^4.4.0",
+        "apollo-link-http": "^1.5.17",
         "gatsby": "^2.28.2",
         "gatsby-image": "^2.4.7",
         "gatsby-plugin-manifest": "^2.4.11",

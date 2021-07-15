@@ -18,7 +18,7 @@ const Footer = () => {
 
 					</FooterText>
 					<div className="box">
-						<SubRight> Good design doesn't date. Bad design does. </SubRight>
+						<SubRight> If to be truthful is to be cruel, then lying must surely be an act of kindness. And so, kindness is a lie. </SubRight>
 						<CopyRight>
 							©
 							<span> {new Date().getFullYear()}, Built with {` `}

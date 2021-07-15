@@ -1,3 +1,4 @@
+const { createHttpLink } = require('apollo-link-http');
 const data = require('./src/data/data');
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -16,9 +17,17 @@ module.exports = {
     {
       resolve: "gatsby-source-graphql",
       options: {
-        url: "https://graphql.anilist.co",
         typeName: "AniList",
         fieldName: "anilist",
+        createLink: pluginOptions => {
+          return createHttpLink({
+            uri: "https://graphql.anilist.co",
+            headers: {
+              Authorization: `Bearer ${process.env.ANILIST_TOKEN}`,
+            },
+            fetch,
+          })
+        }
       },
     },
     {
