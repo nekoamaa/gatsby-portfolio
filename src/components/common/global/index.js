@@ -196,7 +196,7 @@ export const GlobalStyle = createGlobalStyle`
 
 .gradient-text {
   &.active {
-    background-image: linear-gradient(45deg, #f78d14, #fba182);
+    background-image: linear-gradient(45deg, #3db4f2, #3db4f2);
     background-clip: text;
     background-size: 100%;
     background-repeat: repeat;

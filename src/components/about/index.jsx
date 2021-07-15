@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { AboutSection, Avatar, Title, Text, SubTitle } from './style';
+import { AboutSection, Avatar, Title, Text, SubTitle, CurrentEntries, CurrentEntryTitles, EntryCard, EntryProgress, EntryScore } from './style';
 import { SectionIntro, ContainerLayout } from "../common";
 
 const About = () => {
@@ -14,14 +14,14 @@ const About = () => {
         }
       }
       anilist {
-        Page(page: 1, perPage: 10) {
+        Page(page: 1, perPage: 20) {
           mediaList(userId: 567710, status: CURRENT, type: ANIME, sort: STARTED_ON) {
             media {
               title {
                 userPreferred
               }
               coverImage {
-                medium
+                large
               }
               mediaListEntry {
                 progress
@@ -96,7 +96,19 @@ const About = () => {
             </div>
           </AboutSection>
           <div>
-            {currentAnimeTitles.slice(0, -1).join(', ') + ' and ' + currentAnimeTitles.slice(-1)}.
+            <SubTitle>In Progress</SubTitle>
+            <CurrentEntries>
+              {data.anilist.Page.mediaList.map(({ media }) => {
+                return (
+                  <EntryCard>
+                    <img src={media.coverImage.large} alt="anime cover image"></img>
+                    <CurrentEntryTitles>{media.title.userPreferred}</CurrentEntryTitles>
+                    <EntryProgress>{media.mediaListEntry.progress}</EntryProgress>
+                    <EntryScore>{media.mediaListEntry.score}</EntryScore>
+                  </EntryCard>
+                )
+              })}
+            </CurrentEntries>
           </div>
         </ContainerLayout>
       </SectionIntro>

@@ -16,7 +16,7 @@ const WorkIndex = ({ data }) => {
         <SEO title="Reviews" />
         <Intro>
 
-          <SubTitle className="text-secondary">
+          <SubTitle>
             Reviews
           </SubTitle>
 

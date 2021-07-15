@@ -27,8 +27,8 @@ export const Title = styled.h1`
   }
 `
 export const SubTitle = styled.h3`
-  font-size: 2rem;
-  color: ${variables.secondary};
+  color: ${variables.primary};
+  font-size: 2rem; 
   font-family: "GT-Walsheim-Pro-Bold";
 `
 export const Text = styled.p`

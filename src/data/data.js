@@ -1,7 +1,7 @@
 module.exports = {
-  SiteTitle: 'nekoama',
+  SiteTitle: 'anitoku',
   Sitelogo: '#',
-  SiteLogoText: 'nekoama',
+  SiteLogoText: 'anitoku',
   SiteAuthor: 'nekoama',
   SiteDescription: 'Front End Developer',
   defaultDescription: 'Software engineer!',
@@ -47,14 +47,14 @@ module.exports = {
     linkedin: 'https://www.linkedin.com/in/abdelali-dahir-0b5344111/',
   },
   SiteAddress: {
-    city: 'Casablanca',
-    region: 'CurvaSud',
-    country: 'Morocco',
+    city: 'City',
+    region: 'Region',
+    country: 'Country',
     zipCode: 'ZipCode',
   },
   SiteContact: {
-    email: 'abdali.dahir@gmail.com',
+    email: 'email@gmail.com',
     phone: 'phone number',
   },
-  SiteCopyright: '2020',
+  SiteCopyright: '2021',
 };
