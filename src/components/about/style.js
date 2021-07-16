@@ -19,19 +19,23 @@ export const Avatar = styled(Img)`
 export const CurrentEntries = styled.div`
   display: grid;
   grid-gap: 30px;
-  grid-template-columns: repeat(auto-fill,220px);
-  grid-template-rows: repeat(auto-fill,210px);
+  grid-template-columns: repeat(5,1fr);
 `
+
 export const CurrentEntryTitles = styled.div`
   background: rgba(31,38,49,.8);
   border-radius: 0 0 3px 3px;
   bottom: 0;
   left: 0;
   padding: 12px;
-  padding-bottom: 35px;
+  padding-bottom: 40px;
   position: absolute;
   width: 100%;
   z-index: 2;
+  a {
+    color: ${variables.secondary};
+    font-size: 1.1rem;
+  }
 `
 
 export const EntryCard = styled.div`
@@ -44,20 +48,19 @@ export const EntryCard = styled.div`
   position: relative;
   width: 100%;
   img {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
     border-radius: 3px;
     height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
     width: 100%;
-    z-index: 0;
   }
 `
 
 export const EntryProgress = styled.div`
   bottom: 0;
   color: ${variables.primary};
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   left: 0;
   padding: 12px;
   position: absolute;
@@ -72,7 +75,7 @@ export const EntryScore = styled.div`
   left: auto;
   bottom: 0;
   color: ${variables.primary};
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   padding: 12px;
   position: absolute;
   width: 50%;

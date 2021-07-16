@@ -28,7 +28,7 @@ const WorkIndex = ({ data }) => {
                   {review.media.title.userPreferred}<span><span><ThumbsUp /></span>{review.rating}</span>
                   <SubText>Posted on {review.createdAt}</SubText>
                 </Title>
-                <Text><span>{review.body}</span><a href="">See full review</a></Text>
+                <Text><span>{review.body}</span><a href="#">See full review</a></Text>
               </ReviewPost>
             )
           })}

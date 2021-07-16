@@ -15,17 +15,22 @@ const About = () => {
       }
       anilist {
         Page(page: 1, perPage: 20) {
-          mediaList(userId: 567710, status: CURRENT, type: ANIME, sort: STARTED_ON) {
+          mediaList(userId: 567710, status: CURRENT, type: ANIME, sort: SCORE_DESC) {
             media {
               title {
                 userPreferred
               }
               coverImage {
+                medium
                 large
+                extraLarge
               }
               mediaListEntry {
                 progress
                 score
+                media {
+                  episodes
+                }
               }
             }
           }
@@ -70,7 +75,8 @@ const About = () => {
 
   const favoriteAnimeTitles = data.anilist.User.favourites.anime.nodes.map(node => node.title.userPreferred)
   const favoriteMangaTitles = data.anilist.User.favourites.manga.nodes.map(node => node.title.userPreferred)
-  console.log(favoriteAnimeTitles)
+
+
   return (
     <>
       <SectionIntro>
@@ -96,15 +102,15 @@ const About = () => {
             </div>
           </AboutSection>
           <div>
-            <SubTitle>In Progress</SubTitle>
+            <SubTitle>Watching</SubTitle>
             <CurrentEntries>
               {data.anilist.Page.mediaList.map(({ media }) => {
                 return (
                   <EntryCard>
-                    <img src={media.coverImage.large} alt="anime cover image"></img>
-                    <CurrentEntryTitles>{media.title.userPreferred}</CurrentEntryTitles>
-                    <EntryProgress>{media.mediaListEntry.progress}</EntryProgress>
+                    <img src={media.coverImage.extraLarge} alt="anime cover"></img>
+                    <CurrentEntryTitles><a href="#">{media.title.userPreferred}</a></CurrentEntryTitles>
                     <EntryScore>{media.mediaListEntry.score}</EntryScore>
+                    <EntryProgress>{media.mediaListEntry.progress}/{media.mediaListEntry.media.episodes}</EntryProgress>
                   </EntryCard>
                 )
               })}

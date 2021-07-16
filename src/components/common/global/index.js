@@ -10,6 +10,18 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   html {
+    ::-webkit-scrollbar {
+      width: 15px;
+      height: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: rgba(90, 90, 90);
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.2);
+    }
     box-sizing: border-box;
     -ms-overflow-style: scrollbar;
     line-height: 1.15; /* 1 */
@@ -20,6 +32,7 @@ export const GlobalStyle = createGlobalStyle`
       margin: 0;
       background-color: #191c24;
       color: ${variables.secondary};
+      overflow: overlay;
     }
     main {
       display: block;
