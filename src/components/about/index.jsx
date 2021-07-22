@@ -1,9 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { AboutSection, Avatar, Title, Text, SubTitle, CurrentEntries, CurrentEntryTitles, EntryCard, EntryProgress, EntryScore, CCarousel, CContent, CWrapper, ArrowWrapper, CarouselButton } from './style';
+import { AboutSection, Avatar, Title, Text, SubTitle, CurrentEntries, CurrentEntryTitles, EntryCard, EntryProgress, EntryScore } from './style';
 import { SectionIntro, ContainerLayout } from "../common";
-import { ArrowLeft, ArrowRight } from 'react-feather'
-
 
 const About = () => {
   const data = useStaticQuery(graphql`
@@ -78,7 +76,6 @@ const About = () => {
   const favoriteAnimeTitles = data.anilist.User.favourites.anime.nodes.map(node => node.title.userPreferred)
   const favoriteMangaTitles = data.anilist.User.favourites.manga.nodes.map(node => node.title.userPreferred)
 
-
   return (
     <>
       <SectionIntro>
@@ -103,38 +100,21 @@ const About = () => {
               </Text>
             </div>
           </AboutSection>
-          <div>
-            <SubTitle>Watching</SubTitle>
-            <CCarousel>
-              <CContent>
-                <ArrowWrapper>
-                  <CarouselButton>
-                    <ArrowLeft />
-                  </CarouselButton>
-                </ArrowWrapper>
-                <CurrentEntries>
-                  <CWrapper>
-                    {data.anilist.Page.mediaList.map(({ media }) => {
-                      return (
-                        <EntryCard>
-                          <img src={media.coverImage.extraLarge} alt="anime cover"></img>
-                          <CurrentEntryTitles><a href="#">{media.title.userPreferred}</a></CurrentEntryTitles>
-                          <EntryScore>{media.mediaListEntry.score}</EntryScore>
-                          <EntryProgress>{media.mediaListEntry.progress}/{media.mediaListEntry.media.episodes}</EntryProgress>
-                        </EntryCard>
-                      )
-                    })}
 
-                  </CWrapper>
-                </CurrentEntries>
-                <ArrowWrapper>
-                  <CarouselButton>
-                    <ArrowRight />
-                  </CarouselButton>
-                </ArrowWrapper>
-              </CContent>
-            </CCarousel>
-          </div>
+          <SubTitle>Watching</SubTitle>
+
+          <CurrentEntries>
+            {data.anilist.Page.mediaList.map(({ media }) => {
+              return (
+                <EntryCard>
+                  <img src={media.coverImage.extraLarge} alt="anime cover"></img>
+                  <CurrentEntryTitles><a href="#">{media.title.userPreferred}</a></CurrentEntryTitles>
+                  <EntryScore>{media.mediaListEntry.score}</EntryScore>
+                  <EntryProgress>{media.mediaListEntry.progress}/{media.mediaListEntry.media.episodes}</EntryProgress>
+                </EntryCard>
+              )
+            })}
+          </CurrentEntries>
         </ContainerLayout>
       </SectionIntro>
     </>
