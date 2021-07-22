@@ -7,7 +7,7 @@ export default {
   darkGrey: "#333447",
   black: "#000",
   white: "#ececec;",
-  lightGrey: "#566b83",
+  lightGrey: "#728aa1",
   // grid
   width: "96%",
   wrapperWidth: "65rem",

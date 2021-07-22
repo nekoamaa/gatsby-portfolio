@@ -2,6 +2,8 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { AboutSection, Avatar, Title, Text, SubTitle, CurrentEntries, CurrentEntryTitles, EntryCard, EntryProgress, EntryScore } from './style';
 import { SectionIntro, ContainerLayout } from "../common";
+import AnimeStats from '../../components/mediaStats/animeStats';
+import MangaStats from '../../components/mediaStats/mangaStats';
 
 const About = () => {
   const data = useStaticQuery(graphql`
@@ -32,6 +34,7 @@ const About = () => {
                   episodes
                 }
               }
+              siteUrl
             }
           }
         }
@@ -40,10 +43,17 @@ const About = () => {
             anime {
               count
               episodesWatched
+              minutesWatched
+              meanScore
+              standardDeviation
+              
             }
             manga {
               count
               chaptersRead
+              volumesRead
+              meanScore
+              standardDeviation
             }
           }
           favourites {
@@ -96,7 +106,7 @@ const About = () => {
                 I am an anime and manga enthusiast with <b>{data.anilist.User.statistics.anime.count}</b> anime watched
                 and <b>{data.anilist.User.statistics.manga.count}</b> manga read. I have consumed quite a bit of anime and manga
                 if I do say so myself. Some of my favorite anime include {favoriteAnimeTitles.slice(0, -1).join(', ') + ' and ' + favoriteAnimeTitles.slice(-1)}.
-                For manga, I enjoyed reading {favoriteMangaTitles.slice(0, -1).join(', ') + ' and ' + favoriteMangaTitles.slice(-1)}
+                For manga, I enjoyed reading {favoriteMangaTitles.slice(0, -1).join(', ') + ' and ' + favoriteMangaTitles.slice(-1)}.
               </Text>
             </div>
           </AboutSection>
@@ -108,13 +118,39 @@ const About = () => {
               return (
                 <EntryCard>
                   <img src={media.coverImage.extraLarge} alt="anime cover"></img>
-                  <CurrentEntryTitles><a href="#">{media.title.userPreferred}</a></CurrentEntryTitles>
+                  <CurrentEntryTitles><a href={media.siteUrl} target="_blank" el="noreferrer">{media.title.userPreferred}</a></CurrentEntryTitles>
                   <EntryScore>{media.mediaListEntry.score}</EntryScore>
                   <EntryProgress>{media.mediaListEntry.progress}/{media.mediaListEntry.media.episodes}</EntryProgress>
                 </EntryCard>
               )
             })}
           </CurrentEntries>
+
+          <SubTitle>Reading</SubTitle>
+
+          {/* <CurrentEntries>
+            {data.anilist.Page.mediaList.map(({ media }) => {
+              return (
+                <EntryCard>
+                  <img src={media.coverImage.medium} alt="manga cover"></img>
+                  <CurrentEntryTitles><a href={media.siteUrl} target="_blank">{media.title.userPreferred}</a></CurrentEntryTitles>
+                  <EntryScore>{media.mediaListEntry.score}</EntryScore>
+                  <EntryProgress>{media.mediaListEntry.progress}/{media.mediaListEntry.media.chaptersRead}</EntryProgress>
+                </EntryCard>
+              )
+            })}
+          </CurrentEntries> */}
+          <div>
+            <SubTitle>Anime Stats</SubTitle>
+            <AnimeStats />
+          </div>
+
+          <div>
+            <SubTitle>Manga Stats</SubTitle>
+            <MangaStats />
+          </div>
+
+
         </ContainerLayout>
       </SectionIntro>
     </>
