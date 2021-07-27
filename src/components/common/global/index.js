@@ -18,9 +18,13 @@ export const GlobalStyle = createGlobalStyle`
     ::-webkit-scrollbar-thumb {
       background: rgba(90, 90, 90);
     }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(133, 133, 133);
+    }
     
     ::-webkit-scrollbar-track {
-      background: rgba(0, 0, 0, 0.2);
+      background: rgba(#191c24);
     }
     box-sizing: border-box;
     -ms-overflow-style: scrollbar;

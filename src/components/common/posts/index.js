@@ -18,9 +18,6 @@ export const Title = styled.h1`
   grid-area: header;
   > span{
     float: right;
-    span {
-      margin-right: 6px;
-    }
   }
   @media(max-width: ${variables.breakpointPhone}) {
     font-size: 1.5rem;

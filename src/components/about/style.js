@@ -16,6 +16,7 @@ export const Avatar = styled(Img)`
   box-shadow: 0px 0px 64px rgba(0, 0, 0, 0.15);
   width: 100%;
 `
+
 export const CurrentEntries = styled.div`
   display: grid;
   grid-gap: 30px;
@@ -30,10 +31,11 @@ export const CurrentEntryTitles = styled.div`
   bottom: 0;
   left: 0;
   padding: 11px;
-  padding-bottom: 40px;
+  padding-bottom: 35px;
   position: absolute;
   width: 100%;
   z-index: 2;
+  line-height: .7;
   a {
     color: ${variables.secondary};
     font-size: 0.9rem;

@@ -16,7 +16,7 @@ const About = () => {
         }
       }
       anilist {
-        Page(page: 1, perPage: 20) {
+        anime: Page(page: 1, perPage: 20) {
           mediaList(userId: 567710, status: CURRENT, type: ANIME, sort: SCORE_DESC) {
             media {
               title {
@@ -38,22 +38,59 @@ const About = () => {
             }
           }
         }
+        manga: Page(page: 1, perPage: 50) {
+          mediaList(userId: 567710, status: CURRENT, type: MANGA, sort: SCORE_DESC) {
+            media {
+              title {
+                userPreferred
+              }
+              coverImage {
+                medium
+                large
+                extraLarge
+              }
+              mediaListEntry {
+                progress
+                score
+                media {
+                  chapters
+                }
+              }
+              siteUrl
+            }
+          }
+        }
+        mangaTwo: Page(page: 2, perPage: 50) {
+          mediaList(userId: 567710, status: CURRENT, type: MANGA, sort: SCORE_DESC) {
+            media {
+              title {
+                userPreferred
+              }
+              coverImage {
+                medium
+                large
+                extraLarge
+              }
+              mediaListEntry {
+                progress
+                score
+                media {
+                  chapters
+                }
+              }
+              siteUrl
+            }
+          }
+        }
         User(id: 567710) {
           statistics {
             anime {
               count
               episodesWatched
-              minutesWatched
-              meanScore
-              standardDeviation
-              
             }
             manga {
               count
               chaptersRead
-              volumesRead
-              meanScore
-              standardDeviation
             }
           }
           favourites {
@@ -72,19 +109,23 @@ const About = () => {
               }
             }
           }
-        } 
+        }
       }
     }
   `)
+  console.log(data.anilist.anime.mediaList[0].media.title)
+  {/*
   const currentAnimeTitles = data.anilist.Page.mediaList.map(({ media }) => {
     console.log(media.title.userPreferred)
     return (
       media.title.userPreferred
     )
   })
-
+*/}
   const favoriteAnimeTitles = data.anilist.User.favourites.anime.nodes.map(node => node.title.userPreferred)
   const favoriteMangaTitles = data.anilist.User.favourites.manga.nodes.map(node => node.title.userPreferred)
+
+
 
   return (
     <>
@@ -114,11 +155,11 @@ const About = () => {
           <SubTitle>Watching</SubTitle>
 
           <CurrentEntries>
-            {data.anilist.Page.mediaList.map(({ media }) => {
+            {data.anilist.anime.mediaList.map(({ media }) => {
               return (
                 <EntryCard>
                   <img src={media.coverImage.extraLarge} alt="anime cover"></img>
-                  <CurrentEntryTitles><a href={media.siteUrl} target="_blank" el="noreferrer">{media.title.userPreferred}</a></CurrentEntryTitles>
+                  <CurrentEntryTitles><a href={media.siteUrl} target="_blank" rel="noreferrer">{media.title.userPreferred}</a></CurrentEntryTitles>
                   <EntryScore>{media.mediaListEntry.score}</EntryScore>
                   <EntryProgress>{media.mediaListEntry.progress}/{media.mediaListEntry.media.episodes}</EntryProgress>
                 </EntryCard>
@@ -128,18 +169,19 @@ const About = () => {
 
           <SubTitle>Reading</SubTitle>
 
-          {/* <CurrentEntries>
-            {data.anilist.Page.mediaList.map(({ media }) => {
+          <CurrentEntries>
+            {data.anilist.manga.mediaList.map(({ media }) => {
               return (
                 <EntryCard>
-                  <img src={media.coverImage.medium} alt="manga cover"></img>
-                  <CurrentEntryTitles><a href={media.siteUrl} target="_blank">{media.title.userPreferred}</a></CurrentEntryTitles>
+                  <img src={media.coverImage.extraLarge} alt="anime cover"></img>
+                  <CurrentEntryTitles><a href={media.siteUrl} target="_blank" rel="noreferrer">{media.title.userPreferred}</a></CurrentEntryTitles>
                   <EntryScore>{media.mediaListEntry.score}</EntryScore>
-                  <EntryProgress>{media.mediaListEntry.progress}/{media.mediaListEntry.media.chaptersRead}</EntryProgress>
+                  <EntryProgress>{media.mediaListEntry.progress}/{media.mediaListEntry.media.chapters}</EntryProgress>
                 </EntryCard>
               )
             })}
-          </CurrentEntries> */}
+          </CurrentEntries>
+
           <div>
             <SubTitle>Anime Stats</SubTitle>
             <AnimeStats />
