@@ -67,6 +67,9 @@ export const FooterSocialMedia = styled.ul`
 	}
 	svg {
 		margin-right: 15px;
+		&:hover {
+			opacity: .7;
+		}
 	}
 `
 export const MediaLink = styled.a`
@@ -74,8 +77,8 @@ export const MediaLink = styled.a`
 	padding-bottom: .5rem;
 	line-height: 1;
 	font-size: 1rem;
-  	text-transform: capitalize;
-  	font-family: "GT-Walsheim-Pro-Bold";
+	text-transform: capitalize;
+	font-family: "GT-Walsheim-Pro-Bold";
 	color: ${variables.primary};
 
 `
