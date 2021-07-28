@@ -4,6 +4,7 @@ import variables from '../../data/variables';
 
 export const AboutSection = styled.section`
   text-align: center;
+  margin-bottom: 9rem;
   @media only screen and (min-width: ${variables.breakpointLarge}) {
     display: grid;
     grid-template-columns: 1fr 1.25fr;
@@ -15,6 +16,44 @@ export const Avatar = styled(Img)`
   border-radius: 5px;
   box-shadow: 0px 0px 64px rgba(0, 0, 0, 0.15);
   width: 100%;
+`
+
+export const FavoriteCharacters = styled.div`
+  position: relative;
+  overflow: hidden;
+  :nth-child(1) {
+    border-radius: 0 0 0 10px;
+  }
+  :nth-child(2) {
+    border-radius: 10px 10px 0 0;
+    grid-area: 1 / 1 / 1 / span 3;
+  }
+  :nth-child(4) {
+    border-radius: 0 0 10px 0;
+  }
+  img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transition-delay: 500ms;
+  }
+`
+
+export const FavoriteCharactersContainer = styled.div`
+  vertical-align: baseline;
+  font-size: 1.1rem;
+  display: grid;
+  box-shadow: rgb(0 0 0 / 36%) 0px 0.25em 1em;
+  width: 100%;
+  @media (min-width: 850px){
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 25em 9em;
+    width: 25em;
+  }
 `
 
 export const CurrentEntries = styled.div`

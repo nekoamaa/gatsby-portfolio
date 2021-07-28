@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { AboutSection, Avatar, Title, Text, SubTitle, CurrentEntries, CurrentEntryTitles, EntryCard, EntryProgress, EntryScore } from './style';
+import { AboutSection, Avatar, Title, Text, SubTitle, FavoriteCharacters, FavoriteCharactersContainer, CurrentEntries, CurrentEntryTitles, EntryCard, EntryProgress, EntryScore } from './style';
 import { SectionIntro, ContainerLayout } from "../common";
 import AnimeStats from '../../components/mediaStats/animeStats';
 import MangaStats from '../../components/mediaStats/mangaStats';
@@ -108,6 +108,14 @@ const About = () => {
                 }
               }
             }
+            characters(page: 1, perPage: 10) {
+              nodes {
+                image {
+                  large
+                  medium
+                }
+              }
+            }
           }
         }
       }
@@ -116,7 +124,6 @@ const About = () => {
 
   const allManga = data.anilist.manga.mediaList.concat(data.anilist.mangaTwo.mediaList)
 
-  console.log(data.anilist.anime.mediaList[0].media.title)
   {/*
   const currentAnimeTitles = data.anilist.Page.mediaList.map(({ media }) => {
     console.log(media.title.userPreferred)
@@ -129,15 +136,22 @@ const About = () => {
   const favoriteAnimeTitles = data.anilist.User.favourites.anime.nodes.map(node => node.title.userPreferred)
   const favoriteMangaTitles = data.anilist.User.favourites.manga.nodes.map(node => node.title.userPreferred)
 
+  console.log(data.anilist.User.favourites.characters.nodes)
   return (
     <>
       <SectionIntro>
         <ContainerLayout>
           <AboutSection>
-            <div>
-              <Avatar fluid={data.placeholderImage.childImageSharp.fluid} alt="user photo" />
-              <SubTitle> Anime & Manga Enthusiast </SubTitle>
-            </div>
+            <FavoriteCharactersContainer>
+              {data.anilist.User.favourites.characters.nodes.map(node => {
+                return (
+                  <FavoriteCharacters>
+                    <img src={node.image.large} alt="favorite characters" />
+                  </FavoriteCharacters>
+                )
+              })}
+
+            </FavoriteCharactersContainer>
             <div>
               <Title> Hi, I'm <b className="text-primary text-highlight">nekoama</b> </Title>
               <Text>
