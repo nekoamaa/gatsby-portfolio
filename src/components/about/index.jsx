@@ -113,6 +113,9 @@ const About = () => {
       }
     }
   `)
+
+  const allManga = data.anilist.manga.mediaList.concat(data.anilist.mangaTwo.mediaList)
+
   console.log(data.anilist.anime.mediaList[0].media.title)
   {/*
   const currentAnimeTitles = data.anilist.Page.mediaList.map(({ media }) => {
@@ -122,10 +125,9 @@ const About = () => {
     )
   })
 */}
+
   const favoriteAnimeTitles = data.anilist.User.favourites.anime.nodes.map(node => node.title.userPreferred)
   const favoriteMangaTitles = data.anilist.User.favourites.manga.nodes.map(node => node.title.userPreferred)
-
-
 
   return (
     <>
@@ -170,10 +172,10 @@ const About = () => {
           <SubTitle>Reading</SubTitle>
 
           <CurrentEntries>
-            {data.anilist.manga.mediaList.map(({ media }) => {
+            {allManga.map(({ media }) => {
               return (
                 <EntryCard>
-                  <img src={media.coverImage.extraLarge} alt="anime cover"></img>
+                  <img src={media.coverImage.extraLarge} alt="manga cover"></img>
                   <CurrentEntryTitles><a href={media.siteUrl} target="_blank" rel="noreferrer">{media.title.userPreferred}</a></CurrentEntryTitles>
                   <EntryScore>{media.mediaListEntry.score}</EntryScore>
                   <EntryProgress>{media.mediaListEntry.progress}/{media.mediaListEntry.media.chapters}</EntryProgress>
