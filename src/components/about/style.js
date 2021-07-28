@@ -78,7 +78,11 @@ export const CurrentEntryTitles = styled.div`
   a {
     color: ${variables.secondary};
     font-size: 0.9rem;
+    :hover {
+      color: ${variables.primary}
+    }
   }
+  
 `
 
 export const EntryCard = styled.div`
