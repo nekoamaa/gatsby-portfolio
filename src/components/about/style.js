@@ -88,7 +88,7 @@ export const CurrentEntryTitles = styled.div`
 export const EntryCard = styled.div`
   border-radius: 3px;
   box-shadow: 0 2px 20px rgb(49 54 68 / 20%);
-  color: rgb(var(--color-text-bright));
+  color: ${variables.primary};
   display: inline-block;
   font-size: 1.3rem;
   height: 210px;
@@ -101,6 +101,29 @@ export const EntryCard = styled.div`
     border-radius: 3px;
     height: 100%;
     width: 100%;
+  }
+`
+
+export const EntryCardViewMore = styled.div`
+  border-radius: 3px;
+  box-shadow: 0 2px 20px rgb(49 54 68 / 20%);
+  display: inline-block;
+  height: 210px;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #1e2129;
+  &:hover { 
+    box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.05);
+  }
+  a {
+    color: ${variables.primary};
+    font-size: 1.4rem;
+    line-height: 170px;
+    &:hover { 
+      color: #73cfff;
+    }
   }
 `
 

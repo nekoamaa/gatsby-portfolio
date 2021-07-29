@@ -1,9 +1,11 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { AboutSection, Avatar, Title, Text, SubTitle, FavoriteCharacters, FavoriteCharactersContainer, CurrentEntries, CurrentEntryTitles, EntryCard, EntryProgress, EntryScore } from './style';
+import { ChevronUp, ChevronDown } from 'react-feather'
+import { AboutSection, Avatar, Title, Text, SubTitle, FavoriteCharacters, FavoriteCharactersContainer, CurrentEntries, CurrentEntryTitles, EntryCard, EntryCardViewMore, EntryProgress, EntryScore } from './style';
 import { SectionIntro, ContainerLayout } from "../common";
 import AnimeStats from '../../components/mediaStats/animeStats';
 import MangaStats from '../../components/mediaStats/mangaStats';
+
 
 const About = () => {
   const data = useStaticQuery(graphql`
@@ -135,6 +137,7 @@ const About = () => {
 
   const favoriteAnimeTitles = data.anilist.User.favourites.anime.nodes.map(node => node.title.userPreferred)
   const favoriteMangaTitles = data.anilist.User.favourites.manga.nodes.map(node => node.title.userPreferred)
+  const iconStyle = { verticalAlign: "middle" }
 
   console.log(data.anilist.User.favourites.characters.nodes)
   return (
@@ -171,7 +174,7 @@ const About = () => {
           <SubTitle>Watching</SubTitle>
 
           <CurrentEntries>
-            {data.anilist.anime.mediaList.map(({ media }) => {
+            {data.anilist.anime.mediaList.slice(0, 5).map(({ media }) => {
               return (
                 <EntryCard>
                   <img src={media.coverImage.extraLarge} alt="anime cover"></img>
@@ -181,12 +184,15 @@ const About = () => {
                 </EntryCard>
               )
             })}
+            <EntryCardViewMore>
+              <a href="https://anilist.co/user/nekoama/">View More<ChevronDown style={iconStyle} /></a>
+            </EntryCardViewMore>
           </CurrentEntries>
 
           <SubTitle>Reading</SubTitle>
 
           <CurrentEntries>
-            {allManga.map(({ media }) => {
+            {allManga.slice(0, 5).map(({ media }) => {
               return (
                 <EntryCard>
                   <img src={media.coverImage.extraLarge} alt="manga cover"></img>
@@ -196,6 +202,9 @@ const About = () => {
                 </EntryCard>
               )
             })}
+            <EntryCardViewMore>
+              <a href="https://anilist.co/user/nekoama/">View More<ChevronDown style={iconStyle} /></a>
+            </EntryCardViewMore>
           </CurrentEntries>
 
           <div>
