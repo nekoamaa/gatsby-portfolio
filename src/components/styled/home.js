@@ -96,7 +96,8 @@ export const ActivityEntryStatus = styled.div`
     text-transform: uppercase
   }
   a {
-    &:hover { 
+    color: #3db4f2;
+    &:hover {
       color: #73cfff;
     }
   }
@@ -128,6 +129,7 @@ export const PostTitle = styled.h1`
 `
 
 export const PostText = styled.p`
+  margin-top: 0;
   font-size: 1.2rem;
   color: ${variables.secondary};
   grid-area: content;

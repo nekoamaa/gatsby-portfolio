@@ -119,7 +119,7 @@ const IndexPage = () => {
                           <a href={activity.siteUrl} target="_blank" rel="noreferrer" style={coverImageStyle}></a>
                           <ActivityEntryDetails>
                             <ActivityEntryStatus>
-                              <span>{activity.status}</span> {activity.progress} of <a href={activity.siteUrl} target="_blank" rel="noreferrer" style={{ color: "#3db4f2" }}>{activity.media.title.userPreferred}</a>
+                              <span>{activity.status}</span> {activity.progress} of <a href={activity.siteUrl} target="_blank" rel="noreferrer">{activity.media.title.userPreferred}</a>
                             </ActivityEntryStatus>
                           </ActivityEntryDetails>
                         </ActivityEntryInfo>
