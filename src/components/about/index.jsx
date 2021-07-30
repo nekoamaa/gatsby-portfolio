@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { ChevronUp, ChevronDown } from 'react-feather'
-import { AboutSection, Avatar, Title, Text, SubTitle, FavoriteCharacters, FavoriteCharactersContainer, CurrentEntries, CurrentEntryTitles, EntryCard, EntryCardViewMore, EntryProgress, EntryScore } from './style';
+import { ChevronDown } from 'react-feather'
+import { AboutSection, Title, Text, SubTitle, FavoriteCharacters, FavoriteCharactersContainer, CurrentEntries, CurrentEntryTitles, EntryCard, EntryCardViewMore, EntryProgress, EntryScore, EntryStatus } from './style';
 import { SectionIntro, ContainerLayout } from "../common";
 import AnimeStats from '../../components/mediaStats/animeStats';
 import MangaStats from '../../components/mediaStats/mangaStats';
@@ -10,13 +10,6 @@ import MangaStats from '../../components/mediaStats/mangaStats';
 const About = () => {
   const data = useStaticQuery(graphql`
     query {   
-      placeholderImage: file(relativePath: { eq: "vivy.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 700) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
       anilist {
         anime: Page(page: 1, perPage: 20) {
           mediaList(userId: 567710, status: CURRENT, type: ANIME, sort: SCORE_DESC) {
@@ -34,6 +27,7 @@ const About = () => {
                 score
                 media {
                   episodes
+                  status
                 }
               }
               siteUrl
@@ -56,6 +50,7 @@ const About = () => {
                 score
                 media {
                   chapters
+                  status
                 }
               }
               siteUrl
@@ -78,6 +73,7 @@ const About = () => {
                 score
                 media {
                   chapters
+                  status
                 }
               }
               siteUrl
@@ -124,22 +120,13 @@ const About = () => {
     }
   `)
 
+  console.log(data.anilist.anime.mediaList)
+
   const allManga = data.anilist.manga.mediaList.concat(data.anilist.mangaTwo.mediaList)
-
-  {/*
-  const currentAnimeTitles = data.anilist.Page.mediaList.map(({ media }) => {
-    console.log(media.title.userPreferred)
-    return (
-      media.title.userPreferred
-    )
-  })
-*/}
-
   const favoriteAnimeTitles = data.anilist.User.favourites.anime.nodes.map(node => node.title.userPreferred)
   const favoriteMangaTitles = data.anilist.User.favourites.manga.nodes.map(node => node.title.userPreferred)
   const iconStyle = { verticalAlign: "middle" }
 
-  console.log(data.anilist.User.favourites.characters.nodes)
   return (
     <>
       <SectionIntro>
@@ -153,7 +140,6 @@ const About = () => {
                   </FavoriteCharacters>
                 )
               })}
-
             </FavoriteCharactersContainer>
             <div>
               <Title> Hi, I'm <b className="text-primary text-highlight">nekoama</b> </Title>
@@ -181,6 +167,7 @@ const About = () => {
                   <CurrentEntryTitles><a href={media.siteUrl} target="_blank" rel="noreferrer">{media.title.userPreferred}</a></CurrentEntryTitles>
                   <EntryScore>{media.mediaListEntry.score}</EntryScore>
                   <EntryProgress>{media.mediaListEntry.progress}/{media.mediaListEntry.media.episodes}</EntryProgress>
+                  <EntryStatus></EntryStatus>
                 </EntryCard>
               )
             })}
@@ -199,6 +186,7 @@ const About = () => {
                   <CurrentEntryTitles><a href={media.siteUrl} target="_blank" rel="noreferrer">{media.title.userPreferred}</a></CurrentEntryTitles>
                   <EntryScore>{media.mediaListEntry.score}</EntryScore>
                   <EntryProgress>{media.mediaListEntry.progress}/{media.mediaListEntry.media.chapters}</EntryProgress>
+                  <EntryStatus></EntryStatus>
                 </EntryCard>
               )
             })}

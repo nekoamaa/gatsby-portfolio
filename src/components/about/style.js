@@ -152,6 +152,19 @@ export const EntryScore = styled.div`
   z-index: 2;
 `
 
+export const EntryStatus = styled.span`
+  height: 11px;
+  left: -4px;
+  top: -4px;
+  width: 11px;
+  background: #7bd555;
+  box-shadow: 0 0 5px rgb(123 213 85 / 80%);
+  opacity: 1;
+  border-radius: 50%;
+  position: absolute;
+  transition: .2s;
+`
+
 export const Title = styled.h1`
   font-size: 2.8rem;
   font-family: "GT-Walsheim-Pro-Bold";
