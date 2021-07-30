@@ -4,9 +4,9 @@ import SEO from "../components/seo"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { ButtonDefault } from "../components/common/buttons"
 import { SectionIntro, ContainerLayout } from "../components/common";
-import { IntroSection, Title, Text, Avatar, ActivityWrapper, ActivityFeed, ActivityEntry, ActivityEntryWrapper, ActivityEntryInfo, ActivityEntryTime, ActivityEntryDetails, ActivityEntryStatus } from '../components/styled/home';
+import { IntroSection, Title, Text, Avatar, PostTitle, PostText, ReviewPost, SubText, ActivityWrapper, ActivityFeed, ActivityEntry, ActivityEntryWrapper, ActivityEntryInfo, ActivityEntryTime, ActivityEntryDetails, ActivityEntryStatus, RecentActivities, RecentPosts } from '../components/styled/home';
 import { SubTitle } from "../components/about/style";
-
+import { ThumbsUp } from "react-feather"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -24,7 +24,7 @@ const IndexPage = () => {
             total
             perPage
           }
-          activities(userId: 567710, sort: ID_DESC) {
+          activities(userId: 567710, sort: ID_DESC, type:MEDIA_LIST) {
             ... on AniList_ListActivity {
               status
               progress
@@ -40,16 +40,41 @@ const IndexPage = () => {
                 }
               }
               createdAt
+              siteUrl
             }
+          }
+        }
+        reviews: Page(page: 1, perPage: 10) {
+          pageInfo {
+            total
+            perPage
+          }
+          reviews(userId: 567710, sort: CREATED_AT_DESC) {
+            media {
+              title {
+                romaji
+                english
+                native
+                userPreferred
+              }
+              coverImage {
+                extraLarge
+                large
+                medium
+                color
+              }
+            }
+            summary
+            score
+            rating
+            ratingAmount
+            createdAt
+            body
           }
         }
       }
     }
   `)
-
-  console.log(data.anilist.activity)
-  console.log(data.anilist.activity.media)
-  console.log(data.anilist.activity.activities)
 
   return (
     <Layout>
@@ -65,34 +90,50 @@ const IndexPage = () => {
             <Avatar fluid={data.placeholderImage.childImageSharp.fluid} alt="user photo" />
           </IntroSection>
 
-          <ActivityWrapper>
-            <SubTitle>Activity</SubTitle>
-            <ActivityFeed>
-              {data.anilist.activity.activities.map((activity) => {
+          <RecentActivities>
+            <RecentPosts>
+              <SubTitle>Recent Posts</SubTitle>
+              {data.anilist.reviews.reviews.map((review) => {
                 return (
-                  <ActivityEntry>
-                    <ActivityEntryWrapper>
-                      <ActivityEntryInfo>
-                        <ActivityEntryDetails>
-                          <ActivityEntryStatus>
-                            <img src={activity.media.coverImage.large}></img>
-                            <p>{activity.status} {activity.progress} of {activity.media.title.userPreferred}</p>
-                          </ActivityEntryStatus>
-                        </ActivityEntryDetails>
-                      </ActivityEntryInfo>
-                      <ActivityEntryTime>
-                        <p>24 hours ago</p>
-                      </ActivityEntryTime>
-                    </ActivityEntryWrapper>
-                  </ActivityEntry>
+                  <ReviewPost>
+                    <img src={review.media.coverImage.extraLarge} alt="anime" />
+                    <PostTitle>
+                      {review.media.title.userPreferred}<span><ThumbsUp /> {review.rating}</span>
+                      <SubText>Posted on {review.createdAt}</SubText>
+                    </PostTitle>
+                    <PostText><span>{review.summary}</span><a href="#">See full review</a></PostText>
+                  </ReviewPost>
                 )
               })}
+            </RecentPosts>
 
-            </ActivityFeed>
-          </ActivityWrapper>
+            <ActivityWrapper>
+              <SubTitle>Activity</SubTitle>
+              <ActivityFeed>
+                {data.anilist.activity.activities.map((activity) => {
+                  const coverImageStyle = { backgroundImage: `url(${activity.media.coverImage.medium})`, backgroundPosition: "50%", backgroundSize: "cover", backgroundRepeat: "no-repeat" }
+                  return (
+                    <ActivityEntry>
+                      <ActivityEntryWrapper>
+                        <ActivityEntryInfo>
+                          <a href={activity.siteUrl} target="_blank" rel="noreferrer" style={coverImageStyle}></a>
+                          <ActivityEntryDetails>
+                            <ActivityEntryStatus>
+                              <span>{activity.status}</span> {activity.progress} of <a href={activity.siteUrl} target="_blank" rel="noreferrer" style={{ color: "#3db4f2" }}>{activity.media.title.userPreferred}</a>
+                            </ActivityEntryStatus>
+                          </ActivityEntryDetails>
+                        </ActivityEntryInfo>
+                        <ActivityEntryTime>
+                          <time>24 hours ago</time>
+                        </ActivityEntryTime>
+                      </ActivityEntryWrapper>
+                    </ActivityEntry>
+                  )
+                })}
 
-
-          <SubTitle>Recent Posts - Blog & Reviews</SubTitle>
+              </ActivityFeed>
+            </ActivityWrapper>
+          </RecentActivities>
 
         </ContainerLayout>
       </SectionIntro>

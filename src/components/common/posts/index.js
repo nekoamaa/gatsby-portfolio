@@ -12,7 +12,7 @@ export const HeaderIntro = styled.header`
   justify-content: space-between;
   margin-bottom: 6rem;
 `
-export const Title = styled.h1`
+export const PostTitle = styled.h1`
   font-family: "GT-Walsheim-Pro-Bold";
   font-size: 2rem;
   grid-area: header;
@@ -28,7 +28,7 @@ export const SubTitle = styled.h3`
   font-size: 2rem; 
   font-family: "GT-Walsheim-Pro-Bold";
 `
-export const Text = styled.p`
+export const PostText = styled.p`
   font-size: 1.2rem;
   color: ${variables.secondary};
   grid-area: content;

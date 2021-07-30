@@ -3,7 +3,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
-import { WorkPost, Intro, SubTitle, Title, Text, ReviewPost, SubText } from "../components/common"
+import { WorkPost, Intro, SubTitle, PostTitle, PostText, ReviewPost, SubText } from "../components/common"
 import { ThumbsUp } from 'react-feather'
 
 const WorkIndex = ({ data }) => {
@@ -24,11 +24,11 @@ const WorkIndex = ({ data }) => {
             return (
               <ReviewPost>
                 <img src={review.media.coverImage.extraLarge} alt="anime" />
-                <Title>
+                <PostTitle>
                   {review.media.title.userPreferred}<span><ThumbsUp /> {review.rating}</span>
                   <SubText>Posted on {review.createdAt}</SubText>
-                </Title>
-                <Text><span>{review.body}</span><a href="#">See full review</a></Text>
+                </PostTitle>
+                <PostText><span>{review.body}</span><a href="#">See full review</a></PostText>
               </ReviewPost>
             )
           })}
@@ -40,11 +40,11 @@ const WorkIndex = ({ data }) => {
               <WorkPost key={node.fields.slug}>
                 <div>
                   <header>
-                    <Title>
+                    <PostTitle>
                       <Link className="text-primary lined-link" style={{ boxShadow: `none` }} to={node.fields.slug}>
                         {title}
                       </Link>
-                    </Title>
+                    </PostTitle>
                     <Link to={node.fields.slug}>
                       <Img fluid={node.frontmatter.image.childImageSharp.fluid} title="work title" />
                     </Link>
@@ -52,7 +52,7 @@ const WorkIndex = ({ data }) => {
                 </div>
 
                 <div>
-                  <Text
+                  <PostText
                     dangerouslySetInnerHTML={{
                       __html: node.frontmatter.description || node.excerpt,
                     }}

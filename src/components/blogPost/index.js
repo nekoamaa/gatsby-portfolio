@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import { Calendar } from 'react-feather'
 import Img from "gatsby-image"
-import { WorkPost, Title, Text, SmallText, ReadMore } from "../common"
+import { WorkPost, PostTitle, PostText, SmallText, ReadMore } from "../common"
 
 function BlogPost({ node }) {
     const title = node.frontmatter.title || node.fields.slug
@@ -13,17 +13,17 @@ function BlogPost({ node }) {
                     <Link to={node.fields.slug}>
                         <Img fluid={node.frontmatter.image.childImageSharp.fluid} title="work title" />
                     </Link>
-                    <Title>
+                    <PostTitle>
                         <Link className="text-primary" style={{ boxShadow: `none` }} to={node.fields.slug}>
                             {title}
                         </Link>
-                    </Title>
+                    </PostTitle>
                     <SmallText>
                         <Calendar className="align-middle text-primary" width="18" height="18" />
                         <span className="align-middle"> {node.frontmatter.date} </span>
                     </SmallText>
                 </header>
-                <Text
+                <PostText
                     dangerouslySetInnerHTML={{
                         __html: node.frontmatter.description || node.excerpt,
                     }}
