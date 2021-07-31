@@ -44,6 +44,8 @@ export const ActivityWrapper = styled.div`
 `
 
 export const ActivityFeed = styled.div`
+  overflow:auto;
+  height: 45rem;
 `
 
 export const ActivityEntry = styled.div`
