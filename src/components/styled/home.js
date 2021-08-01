@@ -3,16 +3,16 @@ import styled from "styled-components";
 import variables from '../../data/variables';
 
 export const IntroSection = styled.div`
-    grid-gap: 10rem;  
-    text-align: left;
+  grid-gap: 10rem;  
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5rem;
+  @media only screen and (min-width: ${variables.breakpointLarge}) {
     display: flex;
-    flex-direction: column;
-    margin-bottom: 5rem;
-    @media only screen and (min-width: ${variables.breakpointLarge}) {
-      display: flex;
-      flex-direction: row;
-      text-align: left;
-    }   
+    flex-direction: row;
+    text-align: left;
+  }   
 `
 
 export const Title = styled.h1`
@@ -43,9 +43,35 @@ export const ActivityWrapper = styled.div`
   min-width: 0;
 `
 
+export const ActivityScrollbar = styled.div`
+  padding-right: 5px;
+  overflow: auto;
+  visibility: hidden;
+  height: 46rem;
+  &:hover,
+  &:focus {
+    visibility: visible;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  } 
+  ::-webkit-scrollbar-thumb {
+    background: rgba(90, 90, 90);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(133, 133, 133);
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(#191c24);
+  }
+`
+
 export const ActivityFeed = styled.div`
-  overflow:auto;
-  height: 45rem;
+  visibility: visible;
 `
 
 export const ActivityEntry = styled.div`
@@ -54,7 +80,7 @@ export const ActivityEntry = styled.div`
 `
 
 export const ActivityEntryWrapper = styled.div`
-  background: #151f2e;
+  background-color: #22252e;
   border-radius: 4px;
   font-size: 1.3rem;
   overflow: hidden;
@@ -67,7 +93,6 @@ export const ActivityEntryInfo = styled.div`
   height: 100%;
   min-height: 70px;
   display: grid;
-  
 `
 
 export const ActivityEntryTime = styled.div`
@@ -108,7 +133,8 @@ export const ActivityEntryStatus = styled.div`
 export const RecentActivities = styled.div`
   display: flex;
   flex-direction: row;
-  grid-gap: 40px;
+  grid-gap: 65px;
+  margin-bottom: 3rem;
   @media(max-width: ${variables.breakpointPhone}) {
     flex-direction: column;
   }
@@ -156,7 +182,7 @@ export const PostText = styled.p`
 
 export const ReviewPost = styled.article`
   display: grid;
-  grid-template-columns: 170px 480px;
+  grid-template-columns: 170px 440px;
   grid-template-rows: 100px;
   grid-template-areas: 
     "image header"
@@ -175,4 +201,18 @@ export const SubText = styled.p`
   font-size: 1.2rem;
   grid-area: header;
   margin-top: -2px;
+`
+
+export const HomeCharacters = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 5rem;
+  img {
+    width: 19.16%
+  }
+`
+
+export const HomeEntries = styled.div`
+
 `

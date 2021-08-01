@@ -31,6 +31,9 @@ export const FavoriteCharacters = styled.div`
   :nth-child(4) {
     border-radius: 0 0 10px 0;
   }
+  #bannerImage {
+    margin-left: -10px;
+  }
   img {
     position: absolute;
     top: 0px;
@@ -51,14 +54,13 @@ export const FavoriteCharactersContainer = styled.div`
   width: 100%;
   @media (min-width: 850px){
     grid-template-columns: auto auto auto;
-    grid-template-rows: 25em 9em;
-    width: 25em;
+    grid-template-rows: 25em 10em;
   }
 `
 
 export const CurrentEntries = styled.div`
   display: grid;
-  grid-gap: 30px;
+  grid-gap: 25px;
   grid-template-columns: repeat(auto-fill, 150px);
   margin-top: 30px;
   margin-bottom: 90px;
@@ -186,6 +188,14 @@ export const SubTitle = styled.h2`
 color: ${variables.primary};
 font-size: 2.1rem; 
 font-family: "GT-Walsheim-Pro-Bold";
+span {
+  float: right;
+  font-size: 1.2rem;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  color: ${variables.lightGrey};
+}
 `
 export const SocialIcons = styled.div`
   svg {

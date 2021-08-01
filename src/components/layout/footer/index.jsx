@@ -21,7 +21,7 @@ const Footer = () => {
 
 					</FooterText>
 					<div className="box">
-						<SubRight> If to be truthful is to be cruel, then lying must surely be an act of kindness. And so, kindness is a lie. </SubRight>
+						<SubRight> Fake people have an image to maintain, real people just don't care. </SubRight>
 						<CopyRight>
 							©
 							<span> {new Date().getFullYear()}, Built with

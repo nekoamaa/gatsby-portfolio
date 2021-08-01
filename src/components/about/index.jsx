@@ -116,6 +116,42 @@ const About = () => {
             }
           }
         }
+        Media (id: 128160){
+          bannerImage
+          coverImage {
+            extraLarge
+            large
+            medium
+            color
+          }
+        }
+        Asahi: Character(id: 229667) {
+          name {
+            userPreferred
+          }
+          image {
+            large
+            medium
+          }
+        }
+        Yae: Character(id: 229666) {
+          name {
+            userPreferred
+          }
+          image {
+            large
+            medium
+          }
+        }
+        Yuna: Character(id: 229665) {
+          name {
+            userPreferred
+          }
+          image {
+            large
+            medium
+          }
+        }
       }
     }
   `)
@@ -133,6 +169,20 @@ const About = () => {
         <ContainerLayout>
           <AboutSection>
             <FavoriteCharactersContainer>
+              <FavoriteCharacters>
+                <img src={data.anilist.Yuna.image.large} alt="Yuna Amagami" />
+              </FavoriteCharacters>
+              <FavoriteCharacters>
+                <img src={data.anilist.Media.bannerImage} alt="Amagami Banner Image"></img>
+              </FavoriteCharacters>
+              <FavoriteCharacters>
+                <img src={data.anilist.Asahi.image.large} alt="Asahi Amagami" />
+              </FavoriteCharacters>
+              <FavoriteCharacters>
+                <img src={data.anilist.Yae.image.large} alt="Yae Amagami" />
+              </FavoriteCharacters>
+            </FavoriteCharactersContainer>
+            {/*<FavoriteCharactersContainer>
               {data.anilist.User.favourites.characters.nodes.map(node => {
                 return (
                   <FavoriteCharacters>
@@ -140,7 +190,7 @@ const About = () => {
                   </FavoriteCharacters>
                 )
               })}
-            </FavoriteCharactersContainer>
+            </FavoriteCharactersContainer> */}
             <div>
               <Title> Hi, I'm <b className="text-primary text-highlight">nekoama</b> </Title>
               <Text>
@@ -160,7 +210,7 @@ const About = () => {
           <SubTitle>Watching</SubTitle>
 
           <CurrentEntries>
-            {data.anilist.anime.mediaList.slice(0, 5).map(({ media }) => {
+            {data.anilist.anime.mediaList.slice(0, 6).map(({ media }) => {
               return (
                 <EntryCard>
                   <img src={media.coverImage.extraLarge} alt="anime cover"></img>
@@ -179,7 +229,7 @@ const About = () => {
           <SubTitle>Reading</SubTitle>
 
           <CurrentEntries>
-            {allManga.slice(0, 5).map(({ media }) => {
+            {allManga.slice(0, 6).map(({ media }) => {
               return (
                 <EntryCard>
                   <img src={media.coverImage.extraLarge} alt="manga cover"></img>
