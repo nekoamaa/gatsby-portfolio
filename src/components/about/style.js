@@ -195,11 +195,11 @@ export const SubTitle = styled.h2`
 color: ${variables.primary};
 font-size: 2.1rem; 
 font-family: "GT-Walsheim-Pro-Bold";
-span {
+/* span {
   float: right;
   font-size: 1.2rem;
   color: ${variables.lightGrey};
-}
+} */
 `
 export const SocialIcons = styled.div`
   svg {

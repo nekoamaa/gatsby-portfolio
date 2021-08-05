@@ -251,11 +251,40 @@ export const SeasonalFavoriteWrapper = styled.div`
 `
 
 export const SeasonalFavorite = styled.div`
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 5rem;
+  height: auto;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  @media(max-width: ${variables.breakpointPhone}) {
+    flex-direction: column;
+  }
 `
 
 export const SeasonalFavoriteText = styled.div`
+  font-size: 1.2rem;
+  line-height: 2;
+  color: #ececec;
+  a  {
+    color: ${variables.primary};
+  }
+  a:hover {
+    color: #73cfff;
+  }
+`
+export const SeasonalFavoriteScoresWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  line-height: 1.5;
+  font-size: 1.4em;
+  text-align: center;
+  margin: 1em 0 .5em;
+  width: 100%;
 `
+
+export const SeasonalFavoriteScores = styled.div`
+`
+

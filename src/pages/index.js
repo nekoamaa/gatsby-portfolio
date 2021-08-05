@@ -4,8 +4,8 @@ import SEO from "../components/seo"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { ButtonDefault } from "../components/common/buttons"
 import { SectionIntro, ContainerLayout } from "../components/common";
-import { IntroSection, Title, Text, Avatar, SubTitleViewMore, PostTitle, PostText, ReviewPost, SubText, ActivityWrapper, ActivityScrollbar, ActivityFeed, ActivityEntry, ActivityEntryWrapper, ActivityEntryInfo, ActivityEntryTime, ActivityEntryDetails, ActivityEntryStatus, RecentActivities, RecentPosts, HomeCharacters, HomeEntries, FeedTypeToggle, FeedOption, SeasonalFavoriteWrapper, SeasonalFavorite, SeasonalFavoriteText } from '../components/styled/home';
-import { CurrentEntries, CurrentEntryTitles, EntryCard, EntryCardViewMore, EntryProgress, EntryScore, EntryStatus } from '../components/about/style';
+import { IntroSection, Title, Text, Avatar, SubTitleViewMore, PostTitle, PostText, ReviewPost, SubText, ActivityWrapper, ActivityScrollbar, ActivityFeed, ActivityEntry, ActivityEntryWrapper, ActivityEntryInfo, ActivityEntryTime, ActivityEntryDetails, ActivityEntryStatus, RecentActivities, RecentPosts, HomeCharacters, HomeEntries, FeedTypeToggle, FeedOption, SeasonalFavoriteWrapper, SeasonalFavorite, SeasonalFavoriteText, SeasonalFavoriteScoresWrapper, SeasonalFavoriteScores } from '../components/styled/home';
+import { CurrentEntries, CurrentEntryTitles, EntryCard, EntryProgress, EntryScore, EntryStatus } from '../components/about/style';
 import { SubTitle } from "../components/about/style";
 import { ThumbsUp } from "react-feather"
 
@@ -221,6 +221,18 @@ const IndexPage = () => {
             }
           }
         }
+        SeasonalFavorite: Media(id: 114065) {
+          coverImage {
+            extraLarge
+            large
+            medium
+            color
+          }
+          title {
+            userPreferred
+          }
+          siteUrl
+        }
       }
     }
   `)
@@ -304,7 +316,7 @@ const IndexPage = () => {
             </ActivityWrapper>
           </RecentActivities>
 
-          <img src={data.anilist.YahariBackground.bannerImage} style={{ width: "100%", marginBottom: "55px" }} />
+          <img src={data.anilist.YahariBackground.bannerImage} alt="OreGairu Banner" style={{ width: "100%", marginBottom: "55px" }} />
 
           <HomeEntries>
             <SubTitle>Watching <SubTitleViewMore>View More</SubTitleViewMore></SubTitle>
@@ -349,17 +361,46 @@ const IndexPage = () => {
           </HomeCharacters>
 
           <SeasonalFavoriteWrapper>
-            <SubTitle>Seasonal Favorite - Summer</SubTitle>
+            <SubTitle>Seasonal Favorite <span>- Summer</span></SubTitle>
             <SeasonalFavorite>
               <SeasonalFavoriteText>
-                My favorite anime this season is defnitely Bokutachi no Remake.
+                My favorite anime this season is definitely {""}
+                <a href={data.anilist.SeasonalFavorite.siteUrl} style={{ color: `${data.anilist.SeasonalFavorite.coverImage.color}` }}>
+                  {data.anilist.SeasonalFavorite.title.userPreferred}
+                </a>.
+                Starting this show, I really like the vibe this anime gives off. An hour first episode is perfect for this anime,
+                because of how confident they were that people were naturally going to like it. The show is very interesting and
+                exciting, and I would recommend it to anyone. There are a lot of interesting characters in this show, and we get
+                to see how each character's relationship with each other grow as the show progresses. Another reason why I like this
+                anime is because it is similar to {""}
+                <a href="https://anilist.co/anime/21049/ReLife/" target="_blank" rel="noreferrer">
+                  ReLife
+                </a>, another anime that is definitely one of my favorites.
+                <SeasonalFavoriteScoresWrapper>
+                  <SeasonalFavoriteScores>
+                    10/10 <span>story</span>
+                  </SeasonalFavoriteScores>
+                  <SeasonalFavoriteScores>
+                    10/10 <span>animation</span>
+                  </SeasonalFavoriteScores>
+                  <SeasonalFavoriteScores>
+                    10/10 <span>sound</span>
+                  </SeasonalFavoriteScores>
+                  <SeasonalFavoriteScores>
+                    7/10 <span>characters</span>
+                  </SeasonalFavoriteScores>
+                  <SeasonalFavoriteScores>
+                    9/10 <span>overall</span>
+                  </SeasonalFavoriteScores>
+                </SeasonalFavoriteScoresWrapper>
               </SeasonalFavoriteText>
+              <img src={data.anilist.SeasonalFavorite.coverImage.extraLarge} alt="Seasonal Favorite Cover"></img>
             </SeasonalFavorite>
           </SeasonalFavoriteWrapper>
 
         </ContainerLayout>
       </SectionIntro>
-    </Layout>
+    </Layout >
   )
 }
 
