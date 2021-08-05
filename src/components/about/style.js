@@ -64,6 +64,13 @@ export const CurrentEntries = styled.div`
   grid-template-columns: repeat(auto-fill, 150px);
   margin-top: 30px;
   margin-bottom: 90px;
+  media(max-width: ${variables.breakpointPhone}) {
+    grid-gap: 0;
+    grid-row-gap: 20px;
+    grid-template-columns: repeat(auto-fill,120px);
+    grid-template-rows: repeat(auto-fill,160px);
+    justify-content: space-evenly;
+  }
 `
 
 export const CurrentEntryTitles = styled.div`
@@ -191,9 +198,6 @@ font-family: "GT-Walsheim-Pro-Bold";
 span {
   float: right;
   font-size: 1.2rem;
-  display: inline-block;
-  vertical-align: middle;
-  line-height: normal;
   color: ${variables.lightGrey};
 }
 `
@@ -218,6 +222,9 @@ export const StatsOverview = styled.section`
     grid-template-columns: repeat(3,1fr);
     margin-left: 5%;
     width: 90%;
+  }
+  @media(max-width: ${variables.breakpointPhone}) {
+    grid-template-columns: repeat(2,1fr);
   }
 `
 

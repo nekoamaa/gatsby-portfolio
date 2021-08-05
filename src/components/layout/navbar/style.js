@@ -25,8 +25,10 @@ export const NavbarElement = styled.div`
 
 export const NavbarList = styled.ul`
   padding-left: 0;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  justify-content: space-between;
   list-style: none;
   > li a {
     font-size: 1.2rem;

@@ -4,7 +4,7 @@ import SEO from "../components/seo"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { ButtonDefault } from "../components/common/buttons"
 import { SectionIntro, ContainerLayout } from "../components/common";
-import { IntroSection, Title, Text, Avatar, PostTitle, PostText, ReviewPost, SubText, ActivityWrapper, ActivityScrollbar, ActivityFeed, ActivityEntry, ActivityEntryWrapper, ActivityEntryInfo, ActivityEntryTime, ActivityEntryDetails, ActivityEntryStatus, RecentActivities, RecentPosts, HomeCharacters, HomeEntries } from '../components/styled/home';
+import { IntroSection, Title, Text, Avatar, SubTitleViewMore, PostTitle, PostText, ReviewPost, SubText, ActivityWrapper, ActivityScrollbar, ActivityFeed, ActivityEntry, ActivityEntryWrapper, ActivityEntryInfo, ActivityEntryTime, ActivityEntryDetails, ActivityEntryStatus, RecentActivities, RecentPosts, HomeCharacters, HomeEntries, FeedTypeToggle, FeedOption, SeasonalFavoriteWrapper, SeasonalFavorite, SeasonalFavoriteText } from '../components/styled/home';
 import { CurrentEntries, CurrentEntryTitles, EntryCard, EntryCardViewMore, EntryProgress, EntryScore, EntryStatus } from '../components/about/style';
 import { SubTitle } from "../components/about/style";
 import { ThumbsUp } from "react-feather"
@@ -244,7 +244,7 @@ const IndexPage = () => {
 
           <RecentActivities>
             <RecentPosts>
-              <SubTitle>Recent Posts</SubTitle>
+              <SubTitle>Recent Posts<SubTitleViewMore>View More</SubTitleViewMore></SubTitle>
               {data.anilist.reviews.reviews.map((review) => {
                 return (
                   <ReviewPost>
@@ -260,7 +260,23 @@ const IndexPage = () => {
             </RecentPosts>
 
             <ActivityWrapper>
-              <SubTitle>Activity</SubTitle>
+              <SubTitle>
+                Activity
+                <SubTitleViewMore>
+                  <FeedTypeToggle>
+                    <FeedOption>
+                      All
+                    </FeedOption>
+                    <FeedOption>
+                      Manga
+                    </FeedOption>
+                    <FeedOption>
+                      Anime
+                    </FeedOption>
+                  </FeedTypeToggle>
+                </SubTitleViewMore>
+              </SubTitle>
+
               <ActivityScrollbar>
                 <ActivityFeed>
                   {data.anilist.activity.activities.map((activity) => {
@@ -288,17 +304,11 @@ const IndexPage = () => {
             </ActivityWrapper>
           </RecentActivities>
 
-          <HomeCharacters>
-            <img src={data.anilist.Yui.image.large} alt="Yui Yuigahama" />
-            <img src={data.anilist.Yukino.image.large} alt="Yukino Yukinoshita" />
-            <img src={data.anilist.Yumiko.image.large} alt="Yumiko Miura" />
-            <img src={data.anilist.Iroha.image.large} alt="Iroha Isshiki" />
-            <img src={data.anilist.Shizuka.image.large} alt="Shizuka Hiratsuka" />
-          </HomeCharacters>
+          <img src={data.anilist.YahariBackground.bannerImage} style={{ width: "100%", marginBottom: "55px" }} />
 
           <HomeEntries>
-            <SubTitle>Watching <span>View More</span></SubTitle>
-            <CurrentEntries style={{ display: "flex", flexDirection: "row", justifyContent: "spaceEvenly", gridGap: "20px" }}>
+            <SubTitle>Watching <SubTitleViewMore>View More</SubTitleViewMore></SubTitle>
+            <CurrentEntries>
               {data.anilist.anime.mediaList.slice(0, 7).map(({ media }) => {
                 return (
                   <EntryCard>
@@ -314,8 +324,8 @@ const IndexPage = () => {
           </HomeEntries>
 
           <HomeEntries>
-            <SubTitle>Reading</SubTitle>
-            <CurrentEntries style={{ display: "flex", flexDirection: "row", justifyContent: "spaceEvenly", gridGap: "20px" }}>
+            <SubTitle>Reading <SubTitleViewMore>View More</SubTitleViewMore></SubTitle>
+            <CurrentEntries>
               {allManga.slice(0, 7).map(({ media }) => {
                 return (
                   <EntryCard>
@@ -329,6 +339,23 @@ const IndexPage = () => {
               })}
             </CurrentEntries>
           </HomeEntries>
+
+          <HomeCharacters>
+            <img src={data.anilist.Yui.image.large} alt="Yui Yuigahama" />
+            <img src={data.anilist.Yukino.image.large} alt="Yukino Yukinoshita" />
+            <img src={data.anilist.Yumiko.image.large} alt="Yumiko Miura" />
+            <img src={data.anilist.Iroha.image.large} alt="Iroha Isshiki" />
+            <img src={data.anilist.Shizuka.image.large} alt="Shizuka Hiratsuka" />
+          </HomeCharacters>
+
+          <SeasonalFavoriteWrapper>
+            <SubTitle>Seasonal Favorite - Summer</SubTitle>
+            <SeasonalFavorite>
+              <SeasonalFavoriteText>
+                My favorite anime this season is defnitely Bokutachi no Remake.
+              </SeasonalFavoriteText>
+            </SeasonalFavorite>
+          </SeasonalFavoriteWrapper>
 
         </ContainerLayout>
       </SectionIntro>

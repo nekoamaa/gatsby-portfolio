@@ -119,6 +119,7 @@ export const ActivityEntryDetails = styled.div`
 export const ActivityEntryStatus = styled.div`
   font-size: 1rem;
   display: inline-block;
+  transition: .2s;
   :first-letter {
     text-transform: uppercase
   }
@@ -133,7 +134,7 @@ export const ActivityEntryStatus = styled.div`
 export const RecentActivities = styled.div`
   display: flex;
   flex-direction: row;
-  grid-gap: 65px;
+  grid-gap: 55px;
   margin-bottom: 3rem;
   @media(max-width: ${variables.breakpointPhone}) {
     flex-direction: column;
@@ -141,7 +142,7 @@ export const RecentActivities = styled.div`
 `
 
 export const RecentPosts = styled.div`
-
+  
 `
 
 export const PostTitle = styled.h1`
@@ -150,6 +151,7 @@ export const PostTitle = styled.h1`
   grid-area: header;
   > span{
     float: right;
+    padding-right: 7px;
   }
   @media(max-width: ${variables.breakpointPhone}) {
     font-size: 1.5rem;
@@ -161,6 +163,7 @@ export const PostText = styled.p`
   font-size: 1.2rem;
   color: ${variables.secondary};
   grid-area: content;
+  transition: .2s;
   > a {
     color: ${variables.primary};
     &:hover { 
@@ -182,15 +185,16 @@ export const PostText = styled.p`
 
 export const ReviewPost = styled.article`
   display: grid;
-  grid-template-columns: 170px 440px;
+  grid-template-columns: 170px 450px;
   grid-template-rows: 100px;
   grid-template-areas: 
     "image header"
     "image content";
   margin-bottom: 2.5rem;
   color: ${variables.secondary};
+  background-color: #22252e;
   img {
-    width: 150px;
+    width: 156px;
     object-fit: contain;
     align-self: flex-start;
     grid-area: image;
@@ -207,12 +211,51 @@ export const HomeCharacters = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 5rem;
+  margin-top: 7rem;
+  margin-bottom: 6rem;
   img {
-    width: 19.16%
+    width: 19.16%;
   }
 `
 
 export const HomeEntries = styled.div`
+`
 
+export const SubTitleViewMore = styled.div`
+  float: right;
+  font-size: 1.2rem;
+  color: ${variables.lightGrey};
+  padding: 10px 0;
+`
+
+export const FeedTypeToggle = styled.div`
+  background: rgb(var(--color-foreground));
+  border-radius: 3px;
+  display: inline-block;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  grid-gap: 13px;
+`
+
+export const FeedOption = styled.div`
+  font-size: 1.2rem;
+  text-align: center;
+  transition: .2s;
+  :hover {
+  color: ${variables.primary};
+  }
+`
+
+export const SeasonalFavoriteWrapper = styled.div`
+`
+
+export const SeasonalFavorite = styled.div`
+  display: flex;
+  flex-direction: row;
+`
+
+export const SeasonalFavoriteText = styled.div`
+  display: flex;
+  flex-direction: row;
 `
