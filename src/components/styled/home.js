@@ -142,7 +142,6 @@ export const RecentActivities = styled.div`
 `
 
 export const RecentPosts = styled.div`
-  
 `
 
 export const PostTitle = styled.h1`
@@ -154,7 +153,7 @@ export const PostTitle = styled.h1`
     padding-right: 7px;
   }
   @media(max-width: ${variables.breakpointPhone}) {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 `
 
@@ -193,11 +192,30 @@ export const ReviewPost = styled.article`
   margin-bottom: 2.5rem;
   color: ${variables.secondary};
   background-color: #22252e;
+  .bannerImage {
+    display: none;
+  }
   img {
     width: 156px;
-    object-fit: contain;
     align-self: flex-start;
     grid-area: image;
+  }
+  @media(max-width: ${variables.breakpointPhone}) {
+    .bannerImage {
+      display: block;
+      width: 100%;
+      height: 6rem;
+    }
+    .coverImage {
+      display: none;
+    }
+    padding: 0px 15px;
+    grid-template-areas: 
+    "image image"
+    "header header"
+    "content content";
+    grid-template-columns: none;
+    grid-template-rows: auto 80px 80px;
   }
 `
 
@@ -205,6 +223,10 @@ export const SubText = styled.p`
   font-size: 1.2rem;
   grid-area: header;
   margin-top: -2px;
+`
+
+export const HomeCharactersWrapper = styled.div`
+
 `
 
 export const HomeCharacters = styled.div`
@@ -215,6 +237,17 @@ export const HomeCharacters = styled.div`
   margin-bottom: 6rem;
   img {
     width: 19.16%;
+  }
+  @media(max-width: ${variables.breakpointPhone}) {
+    img {
+      width: 50%;
+      padding: 0px 15px;
+      :nth-child(3),
+      :nth-child(4),
+      :nth-child(5) {
+        display: none;
+      }
+    }
   }
 `
 
@@ -254,13 +287,18 @@ export const SeasonalFavorite = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-gap: 5rem;
-  height: auto;
   img {
     max-width: 100%;
     height: auto;
   }
   @media(max-width: ${variables.breakpointPhone}) {
-    flex-direction: column;
+    display: flex;
+    flex-direction: column-reverse;
+    grid-gap: 2.5rem;
+    img {
+      height: auto;
+      padding: 0px 20px;
+    }
   }
 `
 
@@ -278,13 +316,35 @@ export const SeasonalFavoriteText = styled.div`
 export const SeasonalFavoriteScoresWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  flex-flow: row wrap;
+  align-content: flex-start;
   line-height: 1.5;
-  font-size: 1.4em;
+  font-size: 2.1rem;
   text-align: center;
-  margin: 1em 0 .5em;
+  margin: 4rem 0 .5rem;
   width: 100%;
 `
 
 export const SeasonalFavoriteScores = styled.div`
+  width: 20%;
+  span {
+    display: block;
+    font-size: 1.4rem;
+  }
+  @media(max-width: ${variables.breakpointPhone}) {
+    font-size: smaller;
+    width: 25%;
+    span {
+      font-size: 1rem;
+    }
+    :last-child {
+      display: block;
+      font-size: larger;
+      width: 100%;
+    }
+  }
 `
 
+export const Season = styled.span`
+  color: ${variables.lightGrey};
+`

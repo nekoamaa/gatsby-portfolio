@@ -4,7 +4,7 @@ import SEO from "../components/seo"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { ButtonDefault } from "../components/common/buttons"
 import { SectionIntro, ContainerLayout } from "../components/common";
-import { IntroSection, Title, Text, Avatar, SubTitleViewMore, PostTitle, PostText, ReviewPost, SubText, ActivityWrapper, ActivityScrollbar, ActivityFeed, ActivityEntry, ActivityEntryWrapper, ActivityEntryInfo, ActivityEntryTime, ActivityEntryDetails, ActivityEntryStatus, RecentActivities, RecentPosts, HomeCharacters, HomeEntries, FeedTypeToggle, FeedOption, SeasonalFavoriteWrapper, SeasonalFavorite, SeasonalFavoriteText, SeasonalFavoriteScoresWrapper, SeasonalFavoriteScores } from '../components/styled/home';
+import { IntroSection, Title, Text, Avatar, SubTitleViewMore, PostTitle, PostText, ReviewPost, SubText, ActivityWrapper, ActivityScrollbar, ActivityFeed, ActivityEntry, ActivityEntryWrapper, ActivityEntryInfo, ActivityEntryTime, ActivityEntryDetails, ActivityEntryStatus, RecentActivities, RecentPosts, HomeCharactersWrapper, HomeCharacters, HomeEntries, FeedTypeToggle, FeedOption, SeasonalFavoriteWrapper, SeasonalFavorite, Season, SeasonalFavoriteText, SeasonalFavoriteScoresWrapper, SeasonalFavoriteScores } from '../components/styled/home';
 import { CurrentEntries, CurrentEntryTitles, EntryCard, EntryProgress, EntryScore, EntryStatus } from '../components/about/style';
 import { SubTitle } from "../components/about/style";
 import { ThumbsUp } from "react-feather"
@@ -64,7 +64,8 @@ const IndexPage = () => {
                 medium
                 color
               }
-            }
+              bannerImage 
+            }    
             summary
             score
             rating
@@ -228,6 +229,7 @@ const IndexPage = () => {
             medium
             color
           }
+          bannerImage
           title {
             userPreferred
           }
@@ -260,7 +262,8 @@ const IndexPage = () => {
               {data.anilist.reviews.reviews.map((review) => {
                 return (
                   <ReviewPost>
-                    <img src={review.media.coverImage.extraLarge} alt="anime" />
+                    <img src={review.media.coverImage.extraLarge} alt="anime" class="coverImage" />
+                    <img src={review.media.bannerImage} alt="anime" class="bannerImage" />
                     <PostTitle>
                       {review.media.title.userPreferred}<span><ThumbsUp /> {review.rating}</span>
                       <SubText>Posted on {review.createdAt}</SubText>
@@ -361,7 +364,7 @@ const IndexPage = () => {
           </HomeCharacters>
 
           <SeasonalFavoriteWrapper>
-            <SubTitle>Seasonal Favorite <span>- Summer</span></SubTitle>
+            <SubTitle>Seasonal Favorite <Season>• Summer</Season></SubTitle>
             <SeasonalFavorite>
               <SeasonalFavoriteText>
                 My favorite anime this season is definitely {""}
@@ -378,23 +381,23 @@ const IndexPage = () => {
                 </a>, another anime that is definitely one of my favorites.
                 <SeasonalFavoriteScoresWrapper>
                   <SeasonalFavoriteScores>
-                    10/10 <span>story</span>
+                    9/10<span>story</span>
                   </SeasonalFavoriteScores>
                   <SeasonalFavoriteScores>
-                    10/10 <span>animation</span>
+                    8/10 <span>animation</span>
                   </SeasonalFavoriteScores>
                   <SeasonalFavoriteScores>
-                    10/10 <span>sound</span>
+                    6/10 <span>sound</span>
                   </SeasonalFavoriteScores>
                   <SeasonalFavoriteScores>
-                    7/10 <span>characters</span>
+                    8/10 <span>characters</span>
                   </SeasonalFavoriteScores>
                   <SeasonalFavoriteScores>
-                    9/10 <span>overall</span>
+                    8/10 <span>overall</span>
                   </SeasonalFavoriteScores>
                 </SeasonalFavoriteScoresWrapper>
               </SeasonalFavoriteText>
-              <img src={data.anilist.SeasonalFavorite.coverImage.extraLarge} alt="Seasonal Favorite Cover"></img>
+              <img src={data.anilist.SeasonalFavorite.coverImage.extraLarge} alt="Seasonal Favorite Cover" />
             </SeasonalFavorite>
           </SeasonalFavoriteWrapper>
 
