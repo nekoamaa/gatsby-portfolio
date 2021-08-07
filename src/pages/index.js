@@ -4,7 +4,7 @@ import SEO from "../components/seo"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { ButtonDefault } from "../components/common/buttons"
 import { SectionIntro, ContainerLayout } from "../components/common";
-import { IntroSection, Title, Text, Avatar, SubTitleViewMore, PostTitle, PostText, ReviewPost, SubText, ActivityWrapper, ActivityScrollbar, ActivityFeed, ActivityEntry, ActivityEntryWrapper, ActivityEntryInfo, ActivityEntryTime, ActivityEntryDetails, ActivityEntryStatus, RecentActivities, RecentPosts, HomeCharactersWrapper, HomeCharacters, HomeEntries, FeedTypeToggle, FeedOption, SeasonalFavoriteWrapper, SeasonalFavorite, Season, SeasonalFavoriteText, SeasonalFavoriteScoresWrapper, SeasonalFavoriteScores } from '../components/styled/home';
+import { IntroSection, Title, Text, Avatar, SubTitleViewMore, PostTitle, PostText, ReviewPost, SubText, ActivityWrapper, ActivityScrollbar, ActivityFeed, ActivityEntry, ActivityEntryWrapper, ActivityEntryInfo, ActivityEntryTime, ActivityEntryDetails, ActivityEntryStatus, RecentActivities, RecentPosts, HomeCharacters, HomeEntries, HomeEntrySubTitle, HomeEntrySubTitleViewMore, FeedTypeToggle, FeedOption, SeasonalFavoriteWrapper, SeasonalFavorite, Season, SeasonalFavoriteText, SeasonalFavoriteScoresWrapper, SeasonalFavoriteScores } from '../components/styled/home';
 import { CurrentEntries, CurrentEntryTitles, EntryCard, EntryProgress, EntryScore, EntryStatus } from '../components/about/style';
 import { SubTitle } from "../components/about/style";
 import { ThumbsUp } from "react-feather"
@@ -319,10 +319,10 @@ const IndexPage = () => {
             </ActivityWrapper>
           </RecentActivities>
 
-          <img src={data.anilist.YahariBackground.bannerImage} alt="OreGairu Banner" style={{ width: "100%", marginBottom: "55px" }} />
+          <img src={data.anilist.YahariBackground.bannerImage} alt="OreGairu Banner" style={{ width: "100%", marginBottom: "55px", }} />
 
           <HomeEntries>
-            <SubTitle>Watching <SubTitleViewMore>View More</SubTitleViewMore></SubTitle>
+            <HomeEntrySubTitle>Recently Watched <HomeEntrySubTitleViewMore>View More</HomeEntrySubTitleViewMore></HomeEntrySubTitle>
             <CurrentEntries>
               {data.anilist.anime.mediaList.slice(0, 7).map(({ media }) => {
                 return (
@@ -339,7 +339,7 @@ const IndexPage = () => {
           </HomeEntries>
 
           <HomeEntries>
-            <SubTitle>Reading <SubTitleViewMore>View More</SubTitleViewMore></SubTitle>
+            <HomeEntrySubTitle>Recently Read <HomeEntrySubTitleViewMore>View More</HomeEntrySubTitleViewMore></HomeEntrySubTitle>
             <CurrentEntries>
               {allManga.slice(0, 7).map(({ media }) => {
                 return (

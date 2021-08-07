@@ -11,7 +11,6 @@ export const FooterStyle = styled.footer`
 		background: linear-gradient(to top,rgb(0 0 0 / 20%),transparent 50%);
 	}
 	@media(max-width: ${variables.breakpointPhone}) {
-		padding-bottom: 2rem;
 		padding-left: .5rem;
 		padding-right: .5rem;
 		text-align: center;

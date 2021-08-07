@@ -3,6 +3,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
+import { ContainerLayout } from "../components/common";
 import { WorkPost, Intro, SubTitle, PostTitle, PostText, ReviewPost, SubText } from "../components/common"
 import { ThumbsUp } from 'react-feather'
 
@@ -15,26 +16,25 @@ const WorkIndex = ({ data }) => {
       <Layout>
         <SEO title="Reviews" />
         <Intro>
+          <ContainerLayout>
+            <SubTitle>
+              Reviews
+            </SubTitle>
+            {reviews.map((review) => {
+              return (
+                <ReviewPost>
+                  <img src={review.media.coverImage.extraLarge} alt="anime" class="coverImage" />
+                  <img src={review.media.bannerImage} alt="anime" class="bannerImage" />
+                  <PostTitle>
+                    {review.media.title.userPreferred}<span><ThumbsUp /> {review.rating}</span>
+                    <SubText>Posted on {review.createdAt}</SubText>
+                  </PostTitle>
+                  <PostText><span>{review.body}</span><a href="#">See full review</a></PostText>
+                </ReviewPost>
+              )
+            })}
 
-          <SubTitle>
-            Reviews
-          </SubTitle>
-
-          {reviews.map((review) => {
-            return (
-              <ReviewPost>
-                <img src={review.media.coverImage.extraLarge} alt="anime" />
-                <PostTitle>
-                  {review.media.title.userPreferred}<span><ThumbsUp /> {review.rating}</span>
-                  <SubText>Posted on {review.createdAt}</SubText>
-                </PostTitle>
-                <PostText><span>{review.body}</span><a href="#">See full review</a></PostText>
-              </ReviewPost>
-            )
-          })}
-
-
-          {works.map(({ node }) => {
+            {/* {works.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
             return (
               <WorkPost key={node.fields.slug}>
@@ -60,7 +60,8 @@ const WorkIndex = ({ data }) => {
                 </div>
               </WorkPost>
             )
-          })}
+          })} */}
+          </ContainerLayout>
         </Intro>
       </Layout>
     </>

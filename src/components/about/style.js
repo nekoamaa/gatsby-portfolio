@@ -5,11 +5,16 @@ import variables from '../../data/variables';
 export const AboutSection = styled.section`
   text-align: center;
   margin-bottom: 9rem;
-  @media only screen and (min-width: ${variables.breakpointLarge}) {
-    display: grid;
-    grid-template-columns: 1fr 1.25fr;
-    grid-gap: 10rem;
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  grid-gap: 10rem;
+  text-align: left;
+  @media(max-width: ${variables.breakpointPhone}) {
+    display: flex;
+    flex-direction: column;
     text-align: left;
+    grid-gap: 20px;
+    margin-bottom: 50px;
   }
 `
 export const Avatar = styled(Img)`
@@ -31,9 +36,6 @@ export const FavoriteCharacters = styled.div`
   :nth-child(4) {
     border-radius: 0 0 10px 0;
   }
-  #bannerImage {
-    margin-left: -10px;
-  }
   img {
     position: absolute;
     top: 0px;
@@ -52,24 +54,27 @@ export const FavoriteCharactersContainer = styled.div`
   display: grid;
   box-shadow: rgb(0 0 0 / 36%) 0px 0.25em 1em;
   width: 100%;
-  @media (min-width: 850px){
-    grid-template-columns: auto auto auto;
-    grid-template-rows: 25em 10em;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 25em 10em;
+  @media(max-width: ${variables.breakpointPhone}) {
+    grid-template-rows: 20em 10em;
   }
 `
 
 export const CurrentEntries = styled.div`
   display: grid;
-  grid-gap: 25px;
+  grid-gap: 20px;
   grid-template-columns: repeat(auto-fill, 150px);
   margin-top: 30px;
   margin-bottom: 90px;
-  media(max-width: ${variables.breakpointPhone}) {
+  @media(max-width: ${variables.breakpointPhone}) {
     grid-gap: 0;
     grid-row-gap: 20px;
-    grid-template-columns: repeat(auto-fill,120px);
-    grid-template-rows: repeat(auto-fill,160px);
     justify-content: space-evenly;
+    margin-bottom: 60px;
+    div:nth-child(6) {
+      display: none;
+    }
   }
 `
 
@@ -190,16 +195,14 @@ export const Text = styled.p`
     color: #3F51B5;
     text-decoration: underline;
   }
+  @media(max-width: ${variables.breakpointPhone}) {
+    font-size: 1rem;
+  }
 `
 export const SubTitle = styled.h2`
 color: ${variables.primary};
 font-size: 2.1rem; 
 font-family: "GT-Walsheim-Pro-Bold";
-/* span {
-  float: right;
-  font-size: 1.2rem;
-  color: ${variables.lightGrey};
-} */
 `
 export const SocialIcons = styled.div`
   svg {

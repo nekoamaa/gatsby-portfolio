@@ -4,7 +4,8 @@ import variables from '../../../data/variables';
 export const Intro = styled.div`
   padding: 4rem 0 4rem 0;
   font-family: "GT-Walsheim-Pro-Regular";
-`;
+`
+
 export const HeaderIntro = styled.header`
   display: grid;
   grid-template-columns: 1.5fr 1fr;
@@ -12,6 +13,7 @@ export const HeaderIntro = styled.header`
   justify-content: space-between;
   margin-bottom: 6rem;
 `
+
 export const PostTitle = styled.h1`
   font-family: "GT-Walsheim-Pro-Bold";
   font-size: 2rem;
@@ -20,20 +22,30 @@ export const PostTitle = styled.h1`
     float: right;
   }
   @media(max-width: ${variables.breakpointPhone}) {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    padding-left: 7px;
+    > span{
+      padding-right: 7px;
+    }
   }
 `
+
 export const SubTitle = styled.h3`
   color: ${variables.primary};
   font-size: 2rem; 
   font-family: "GT-Walsheim-Pro-Bold";
 `
+
 export const PostText = styled.p`
   font-size: 1.2rem;
   color: ${variables.secondary};
   grid-area: content;
+  transition: .2s;
   > a {
     color: ${variables.primary};
+    &:hover { 
+      color: #73cfff;
+    }
   }
   span {
     overflow: hidden;
@@ -43,10 +55,12 @@ export const PostText = styled.p`
     -webkit-box-orient: vertical;
   }
   @media(max-width: ${variables.breakpointPhone}) {
-    margin-top: 1rem;
     font-size: .8rem;
+    padding-left: 7px;
+    padding-right: 7px;
   }
 `
+
 export const SubText = styled.p`
   font-size: 1.2rem;
   grid-area: header;
@@ -79,6 +93,7 @@ export const WorkPost = styled.article`
     }
   }
 `
+
 export const ReviewPost = styled.article`
   word-wrap: break-word;
   word-break: break-word;
@@ -97,6 +112,24 @@ export const ReviewPost = styled.article`
     align-self: flex-start;
     grid-area: image;
   }
+  @media(max-width: ${variables.breakpointPhone}) {
+    margin-bottom: 3rem;
+    .bannerImage {
+      display: block;
+      width: 100%;
+      height: 6rem;
+    }
+    .coverImage {
+      display: none;
+    }
+    background-color: #22252e;
+    grid-template-areas: 
+    "image image"
+    "header header"
+    "content content";
+    grid-template-columns: none;
+    grid-template-rows: auto 80px auto;
+  }
 `
 
 export const Category = styled.span`
@@ -110,6 +143,7 @@ export const Category = styled.span`
   margin-right: 1rem;
   border: 3px solid ${variables.primary};
 `
+
 export const BlogLayout = styled.div`
   grid-template-columns: auto auto;
   @media (min-width: ${variables.breakpointTablet}) {

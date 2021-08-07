@@ -13,6 +13,9 @@ export const IntroSection = styled.div`
     flex-direction: row;
     text-align: left;
   }   
+  @media(max-width: ${variables.breakpointPhone}) {
+    grid-gap: 40px;
+  }
 `
 
 export const Title = styled.h1`
@@ -138,6 +141,7 @@ export const RecentActivities = styled.div`
   margin-bottom: 3rem;
   @media(max-width: ${variables.breakpointPhone}) {
     flex-direction: column;
+    grid-gap: 1px;
   }
 `
 
@@ -154,11 +158,11 @@ export const PostTitle = styled.h1`
   }
   @media(max-width: ${variables.breakpointPhone}) {
     font-size: 1.4rem;
+    padding-left: 7px;
   }
 `
 
 export const PostText = styled.p`
-  margin-top: 0;
   font-size: 1.2rem;
   color: ${variables.secondary};
   grid-area: content;
@@ -177,8 +181,8 @@ export const PostText = styled.p`
     -webkit-box-orient: vertical;
   }
   @media(max-width: ${variables.breakpointPhone}) {
-    margin-top: 1rem;
     font-size: .8rem;
+    padding-left: 7px;
   }
 `
 
@@ -209,13 +213,12 @@ export const ReviewPost = styled.article`
     .coverImage {
       display: none;
     }
-    padding: 0px 15px;
     grid-template-areas: 
     "image image"
     "header header"
     "content content";
     grid-template-columns: none;
-    grid-template-rows: auto 80px 80px;
+    grid-template-rows: auto 80px auto;
   }
 `
 
@@ -239,9 +242,10 @@ export const HomeCharacters = styled.div`
     width: 19.16%;
   }
   @media(max-width: ${variables.breakpointPhone}) {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
     img {
       width: 50%;
-      padding: 0px 15px;
       :nth-child(3),
       :nth-child(4),
       :nth-child(5) {
@@ -253,6 +257,28 @@ export const HomeCharacters = styled.div`
 
 export const HomeEntries = styled.div`
 `
+
+export const HomeEntrySubTitle = styled.h2`
+color: ${variables.primary};
+font-size: 2.1rem; 
+font-family: "GT-Walsheim-Pro-Bold";
+@media(max-width: ${variables.breakpointPhone}) {
+  display: flex;
+  flex-direction: row;
+}
+`
+
+export const HomeEntrySubTitleViewMore = styled.div`
+  float: right;
+  font-size: 1.2rem;
+  color: ${variables.lightGrey};
+  padding: 10px 0;
+  @media(max-width: ${variables.breakpointPhone}) {
+    width: 35%;
+    text-align: right;
+  }
+`
+
 
 export const SubTitleViewMore = styled.div`
   float: right;
@@ -297,7 +323,6 @@ export const SeasonalFavorite = styled.div`
     grid-gap: 2.5rem;
     img {
       height: auto;
-      padding: 0px 20px;
     }
   }
 `
@@ -312,6 +337,9 @@ export const SeasonalFavoriteText = styled.div`
   a:hover {
     color: #73cfff;
   }
+  @media(max-width: ${variables.breakpointPhone}) {
+    font-size: 1rem;
+  }
 `
 export const SeasonalFavoriteScoresWrapper = styled.div`
   display: flex;
@@ -323,6 +351,9 @@ export const SeasonalFavoriteScoresWrapper = styled.div`
   text-align: center;
   margin: 4rem 0 .5rem;
   width: 100%;
+  @media(max-width: ${variables.breakpointPhone}) {
+    margin: 0;
+  }
 `
 
 export const SeasonalFavoriteScores = styled.div`
@@ -332,14 +363,16 @@ export const SeasonalFavoriteScores = styled.div`
     font-size: 1.4rem;
   }
   @media(max-width: ${variables.breakpointPhone}) {
-    font-size: smaller;
+    margin-top: 20px;
+    font-size: 1.6rem;
     width: 25%;
     span {
       font-size: 1rem;
     }
     :last-child {
+      margin-top: 7px;
       display: block;
-      font-size: larger;
+      font-size: 2.1rem;
       width: 100%;
     }
   }

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import variables from "../../../data/variables";
 
 export const ContainerLayout = styled.div`
+  padding: 0px 7px;
   {/* width: ${variables.width}; */}
   margin-left: auto;
   margin-right: auto;
