@@ -208,7 +208,7 @@ export const ReviewPost = styled.article`
     .bannerImage {
       display: block;
       width: 100%;
-      height: 6rem;
+      height: auto;
     }
     .coverImage {
       display: none;

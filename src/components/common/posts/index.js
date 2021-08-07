@@ -115,9 +115,9 @@ export const ReviewPost = styled.article`
   @media(max-width: ${variables.breakpointPhone}) {
     margin-bottom: 3rem;
     .bannerImage {
-      display: block;
       width: 100%;
-      height: 6rem;
+      height: auto;
+      margin: 0;
     }
     .coverImage {
       display: none;

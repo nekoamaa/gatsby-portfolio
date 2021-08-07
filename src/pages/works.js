@@ -92,6 +92,7 @@ export const pageQuery = graphql`
               medium
               color
             }
+            bannerImage
           }
           summary
           score
