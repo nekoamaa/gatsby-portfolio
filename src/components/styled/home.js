@@ -146,6 +146,7 @@ export const RecentActivities = styled.div`
 `
 
 export const RecentPosts = styled.div`
+
 `
 
 export const PostTitle = styled.h1`
@@ -167,6 +168,7 @@ export const PostText = styled.p`
   color: ${variables.secondary};
   grid-area: content;
   transition: .2s;
+  margin: 0;
   > a {
     color: ${variables.primary};
     &:hover { 
@@ -183,6 +185,8 @@ export const PostText = styled.p`
   @media(max-width: ${variables.breakpointPhone}) {
     font-size: .8rem;
     padding-left: 7px;
+    margin-top: 5px;
+    margin-bottom: 10px;
   }
 `
 
@@ -306,7 +310,7 @@ export const FeedOption = styled.div`
   }
 `
 
-export const SeasonalFavoriteWrapper = styled.div`
+export const SeasonalFavoriteAnimeWrapper = styled.div`
 `
 
 export const SeasonalFavorite = styled.div`

@@ -81,7 +81,7 @@ export const SmallText = styled.small`
 export const WorkPost = styled.article`
   display: flex;
   grid-template-columns: 1fr 1fr;
-  align-items: center;
+  align-items: center | flex-start;
   color: ${variables.secondary};
   @media(max-width: ${variables.breakpointPhone}) {
     grid-template-columns: 1fr;

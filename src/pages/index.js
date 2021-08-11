@@ -4,7 +4,7 @@ import SEO from "../components/seo"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { ButtonDefault } from "../components/common/buttons"
 import { SectionIntro, ContainerLayout } from "../components/common";
-import { IntroSection, Title, Text, Avatar, SubTitleViewMore, PostTitle, PostText, ReviewPost, SubText, ActivityWrapper, ActivityScrollbar, ActivityFeed, ActivityEntry, ActivityEntryWrapper, ActivityEntryInfo, ActivityEntryTime, ActivityEntryDetails, ActivityEntryStatus, RecentActivities, RecentPosts, HomeCharacters, HomeEntries, HomeEntrySubTitle, HomeEntrySubTitleViewMore, FeedTypeToggle, FeedOption, SeasonalFavoriteWrapper, SeasonalFavorite, Season, SeasonalFavoriteText, SeasonalFavoriteScoresWrapper, SeasonalFavoriteScores } from '../components/styled/home';
+import { IntroSection, Title, Text, Avatar, SubTitleViewMore, PostTitle, PostText, ReviewPost, SubText, ActivityWrapper, ActivityScrollbar, ActivityFeed, ActivityEntry, ActivityEntryWrapper, ActivityEntryInfo, ActivityEntryTime, ActivityEntryDetails, ActivityEntryStatus, RecentActivities, RecentPosts, HomeCharacters, HomeEntries, HomeEntrySubTitle, HomeEntrySubTitleViewMore, FeedTypeToggle, FeedOption, SeasonalFavoriteAnimeWrapper, SeasonalFavorite, Season, SeasonalFavoriteText, SeasonalFavoriteScoresWrapper, SeasonalFavoriteScores } from '../components/styled/home';
 import { CurrentEntries, CurrentEntryTitles, EntryCard, EntryProgress, EntryScore, EntryStatus } from '../components/about/style';
 import { SubTitle } from "../components/about/style";
 import { ThumbsUp } from "react-feather"
@@ -153,7 +153,7 @@ const IndexPage = () => {
         YahariBackground: Media(id: 108489) {
           bannerImage
         }
-        anime: Page(page: 1, perPage: 20) {
+        currentAnime: Page(page: 1, perPage: 20) {
           mediaList(userId: 567710, status: CURRENT, type: ANIME, sort: UPDATED_TIME_DESC) {
             media {
               title {
@@ -240,6 +240,7 @@ const IndexPage = () => {
   `)
 
   const allManga = data.anilist.manga.mediaList.concat(data.anilist.mangaTwo.mediaList)
+  console.log(data.anilist.currentAnime)
 
   return (
     <Layout>
@@ -266,7 +267,7 @@ const IndexPage = () => {
                     <img src={review.media.bannerImage} alt="anime" class="bannerImage" />
                     <PostTitle>
                       {review.media.title.userPreferred}<span><ThumbsUp /> {review.rating}</span>
-                      <SubText>Posted on {review.createdAt}</SubText>
+                      <SubText>{timestampToMDY(review.createdAt)}</SubText>
                     </PostTitle>
                     <PostText><span>{review.summary}</span><a href={review.siteUrl}>See full review</a></PostText>
                   </ReviewPost>
@@ -324,7 +325,7 @@ const IndexPage = () => {
           <HomeEntries>
             <HomeEntrySubTitle>Recently Watched <HomeEntrySubTitleViewMore>View More</HomeEntrySubTitleViewMore></HomeEntrySubTitle>
             <CurrentEntries>
-              {data.anilist.anime.mediaList.slice(0, 7).map(({ media }) => {
+              {data.anilist.currentAnime.mediaList.slice(0, 7).map(({ media }) => {
                 return (
                   <EntryCard>
                     <img src={media.coverImage.extraLarge} alt="anime cover"></img>
@@ -363,8 +364,8 @@ const IndexPage = () => {
             <img src={data.anilist.Shizuka.image.large} alt="Shizuka Hiratsuka" />
           </HomeCharacters>
 
-          <SeasonalFavoriteWrapper>
-            <SubTitle>Seasonal Favorite <Season>• Summer</Season></SubTitle>
+          <SeasonalFavoriteAnimeWrapper>
+            <SubTitle>Seasonal Favorite Anime <Season>• Summer</Season></SubTitle>
             <SeasonalFavorite>
               <SeasonalFavoriteText>
                 My favorite anime this season is definitely {""}
@@ -381,7 +382,7 @@ const IndexPage = () => {
                 </a>, another anime that is definitely one of my favorites.
                 <SeasonalFavoriteScoresWrapper>
                   <SeasonalFavoriteScores>
-                    9/10<span>story</span>
+                    9/10 <span>story</span>
                   </SeasonalFavoriteScores>
                   <SeasonalFavoriteScores>
                     8/10 <span>animation</span>
@@ -399,7 +400,7 @@ const IndexPage = () => {
               </SeasonalFavoriteText>
               <img src={data.anilist.SeasonalFavorite.coverImage.extraLarge} alt="Seasonal Favorite Cover" />
             </SeasonalFavorite>
-          </SeasonalFavoriteWrapper>
+          </SeasonalFavoriteAnimeWrapper>
 
         </ContainerLayout>
       </SectionIntro>
@@ -408,3 +409,9 @@ const IndexPage = () => {
 }
 
 export default IndexPage
+
+function timestampToMDY(timestamp) {
+  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+  const date = new Date(timestamp * 1000)
+  return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`
+}
