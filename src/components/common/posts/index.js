@@ -112,14 +112,18 @@ export const ReviewPost = styled.article`
     align-self: flex-start;
     grid-area: image;
   }
+  .bannerImageReviews {
+    display: none;
+  }
   @media(max-width: ${variables.breakpointPhone}) {
     margin-bottom: 3rem;
-    .bannerImage {
+    .bannerImageReviews {
       width: 100%;
       height: auto;
       margin: 0;
+      display: block;
     }
-    .coverImage {
+    .coverImageReviews {
       display: none;
     }
     background-color: #22252e;

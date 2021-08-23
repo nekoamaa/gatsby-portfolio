@@ -2,19 +2,51 @@ import Img from "gatsby-image"
 import styled from "styled-components";
 import variables from '../../data/variables';
 
+export const OregairuVideo = styled.div`
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  iframe {
+    background-color: rgba(0, 0, 0, 0.6);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(25,28,36,1) 35%, rgba(0,212,255,1) 100%);
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%); 
+    pointer-events: none;
+    filter: brightness(40%);
+    @media (min-aspect-ratio: 16/9) {
+      height: 56.25vw;
+    }
+    @media (max-aspect-ratio: 16/9) {
+      width: 177.78vh;
+    }
+    @media(max-width: ${variables.breakpointPhone}) {
+      width: 100%;
+      height: 100%;
+    }
+  }
+`
+
 export const IntroSection = styled.div`
   grid-gap: 10rem;  
   text-align: left;
   display: flex;
   flex-direction: column;
   margin-bottom: 5rem;
+  padding-bottom: 17rem;
+  position: relative;
   @media only screen and (min-width: ${variables.breakpointLarge}) {
     display: flex;
     flex-direction: row;
     text-align: left;
+    color: ${variables.primary};
   }   
   @media(max-width: ${variables.breakpointPhone}) {
     grid-gap: 40px;
+    margin-bottom: 14rem;
   }
 `
 
@@ -277,6 +309,9 @@ export const HomeEntrySubTitleViewMore = styled.div`
   font-size: 1.2rem;
   color: ${variables.lightGrey};
   padding: 10px 0;
+  :hover {
+    color: ${variables.primary};
+  }
   @media(max-width: ${variables.breakpointPhone}) {
     width: 35%;
     text-align: right;
@@ -289,6 +324,9 @@ export const SubTitleViewMore = styled.div`
   font-size: 1.2rem;
   color: ${variables.lightGrey};
   padding: 10px 0;
+  :hover {
+    color: ${variables.primary};
+  }
 `
 
 export const FeedTypeToggle = styled.div`

@@ -14,8 +14,17 @@ export const NavbarLogo = styled.div`
 
 export const NavbarElement = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.04fr;
   align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  background: rgba(25, 28, 36, 0.55);
+  width: 100%;
+  @media(min-width: ${variables.breakpointLarge}) {
+    padding-right: 136px;
+    padding-left: 136px;
+  }
   @media(max-width: ${variables.breakpointPhone}) {
     grid-template-columns: 1fr;
     text-align: center;
@@ -46,7 +55,7 @@ export const NavbarList = styled.ul`
       vertical-align: middle;
     }
     @media(max-width: ${variables.breakpointPhone}) {
-      font-size: 1rem;
+      font-size: 0.8rem;
     }
   }
 `

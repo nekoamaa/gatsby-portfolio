@@ -4,7 +4,7 @@ import SEO from "../components/seo"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { ButtonDefault } from "../components/common/buttons"
 import { SectionIntro, ContainerLayout } from "../components/common";
-import { IntroSection, Title, Text, Avatar, SubTitleViewMore, PostTitle, PostText, ReviewPost, SubText, ActivityWrapper, ActivityScrollbar, ActivityFeed, ActivityEntry, ActivityEntryWrapper, ActivityEntryInfo, ActivityEntryTime, ActivityEntryDetails, ActivityEntryStatus, RecentActivities, RecentPosts, HomeCharacters, HomeEntries, HomeEntrySubTitle, HomeEntrySubTitleViewMore, FeedTypeToggle, FeedOption, SeasonalFavoriteAnimeWrapper, SeasonalFavorite, Season, SeasonalFavoriteText, SeasonalFavoriteScoresWrapper, SeasonalFavoriteScores } from '../components/styled/home';
+import { OregairuVideo, IntroSection, Title, Text, Avatar, SubTitleViewMore, PostTitle, PostText, ReviewPost, SubText, ActivityWrapper, ActivityScrollbar, ActivityFeed, ActivityEntry, ActivityEntryWrapper, ActivityEntryInfo, ActivityEntryTime, ActivityEntryDetails, ActivityEntryStatus, RecentActivities, RecentPosts, HomeCharacters, HomeEntries, HomeEntrySubTitle, HomeEntrySubTitleViewMore, FeedTypeToggle, FeedOption, SeasonalFavoriteAnimeWrapper, SeasonalFavorite, Season, SeasonalFavoriteText, SeasonalFavoriteScoresWrapper, SeasonalFavoriteScores } from '../components/styled/home';
 import { CurrentEntries, CurrentEntryTitles, EntryCard, EntryProgress, EntryScore, EntryStatus } from '../components/about/style';
 import { SubTitle } from "../components/about/style";
 import { ThumbsUp } from "react-feather"
@@ -242,19 +242,23 @@ const IndexPage = () => {
   const allManga = data.anilist.manga.mediaList.concat(data.anilist.mangaTwo.mediaList)
   console.log(data.anilist.currentAnime)
 
+
+
   return (
     <Layout>
+      <OregairuVideo>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/jiroV9Ibqf4?modestbranding=1&autohide=1&showinfo=0&controls=0&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </OregairuVideo>
       <SEO title="Home" />
       <SectionIntro>
         <ContainerLayout>
-
           <IntroSection>
             <div>
               <Title>Hi, I'm <b className="text-primary text-highlight">nekoama</b></Title>
-              <Text>Welcome to my site! Feel free to browse through my site and let me know what you think. </Text>
-              <Link to="/about"><ButtonDefault>Learn more about me!</ButtonDefault></Link>
+              <Text>Welcome to my site! Feel free to browse around and let me know what you think. </Text>
+              {/*<Link to="/about"><ButtonDefault>Learn more about me!</ButtonDefault></Link>*/}
             </div>
-            <Avatar fluid={data.placeholderImage.childImageSharp.fluid} alt="user photo" />
+            {/* <Avatar fluid={data.placeholderImage.childImageSharp.fluid} alt="user photo" /> */}
           </IntroSection>
 
           <RecentActivities>

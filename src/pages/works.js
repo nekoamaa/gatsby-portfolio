@@ -23,8 +23,8 @@ const WorkIndex = ({ data }) => {
             {reviews.map((review) => {
               return (
                 <ReviewPost>
-                  <img src={review.media.coverImage.extraLarge} alt="anime" class="coverImage" />
-                  <img src={review.media.bannerImage} alt="anime" class="bannerImage" />
+                  <img src={review.media.coverImage.extraLarge} alt="anime" class="coverImageReviews" />
+                  <img src={review.media.bannerImage} alt="anime" class="bannerImageReviews" />
                   <PostTitle>
                     {review.media.title.userPreferred}<span><ThumbsUp /> {review.rating}</span>
                     <SubText>Posted on {review.createdAt}</SubText>
