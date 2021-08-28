@@ -3,12 +3,17 @@ import styled from "styled-components";
 import variables from '../../data/variables';
 
 export const OregairuVideo = styled.div`
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
+display: block;
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100vh;
+content: ' ';
+backface-visibility: hidden;
+opacity: 0.8;
+overflow: hidden;
   iframe {
-    background-color: rgba(0, 0, 0, 0.6);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(25,28,36,1) 35%, rgba(0,212,255,1) 100%);
     position: absolute;
     top: 40%;
     left: 50%;
@@ -30,6 +35,23 @@ export const OregairuVideo = styled.div`
   }
 `
 
+export const IframeGradient = styled.div`
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: ' ';
+  position: absolute;
+  background: rgb(32,35,43);
+  background: linear-gradient(180deg,rgba(32,35,43,0) 0%,rgb(33 36 44) 100%);  
+  @media(max-width: ${variables.breakpointPhone}) {
+    height: 90%;
+    background: linear-gradient(180deg,rgba(32,35,43,0) 0%,rgb(25 28 36) 100%);
+  }
+`
+
 export const IntroSection = styled.div`
   grid-gap: 10rem;  
   text-align: left;
@@ -38,6 +60,7 @@ export const IntroSection = styled.div`
   margin-bottom: 5rem;
   padding-bottom: 17rem;
   position: relative;
+  z-index: 3;
   @media only screen and (min-width: ${variables.breakpointLarge}) {
     display: flex;
     flex-direction: row;
