@@ -11,7 +11,6 @@ width: 100%;
 height: 100vh;
 content: ' ';
 backface-visibility: hidden;
-opacity: 0.8;
 overflow: hidden;
   iframe {
     position: absolute;
@@ -21,7 +20,7 @@ overflow: hidden;
     height: 100vh;
     transform: translate(-50%, -50%); 
     pointer-events: none;
-    filter: brightness(40%);
+    //filter: brightness(90%);
     @media (min-aspect-ratio: 16/9) {
       height: 56.25vw;
     }
@@ -45,10 +44,10 @@ export const IframeGradient = styled.div`
   content: ' ';
   position: absolute;
   background: rgb(32,35,43);
-  background: linear-gradient(180deg,rgba(32,35,43,0) 0%,rgb(33 36 44) 100%);  
+  background: linear-gradient(180deg,rgba(32,35,43,0) 0%,rgb(33 36 44) 98%);  
   @media(max-width: ${variables.breakpointPhone}) {
-    height: 90%;
-    background: linear-gradient(180deg,rgba(32,35,43,0) 0%,rgb(25 28 36) 100%);
+    height: 91%;
+    background: linear-gradient(180deg,rgba(32,35,43,0) 0%,rgb(25 28 36) 98%);
   }
 `
 
@@ -58,7 +57,6 @@ export const IntroSection = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 5rem;
-  padding-bottom: 17rem;
   position: relative;
   z-index: 3;
   @media only screen and (min-width: ${variables.breakpointLarge}) {
@@ -66,10 +64,12 @@ export const IntroSection = styled.div`
     flex-direction: row;
     text-align: left;
     color: ${variables.primary};
+    padding-bottom: 17rem;
   }   
   @media(max-width: ${variables.breakpointPhone}) {
     grid-gap: 40px;
     margin-bottom: 14rem;
+    padding-bottom: 11rem;
   }
 `
 
@@ -83,6 +83,24 @@ export const Title = styled.h1`
 `
 export const Text = styled.p`
   font-size: 1.2rem;
+  line-height: 2;
+  color: ${variables.secondary};
+  a {
+    color: #3F51B5;
+    text-decoration: underline;
+  }
+`
+
+export const HomeTitle = styled.h1`
+  font-size: 3.5rem;
+  font-family: "GT-Walsheim-Pro-Bold";
+  color: ${variables.secondary};
+  @media(max-width: ${variables.breakpointPhone}) {
+    font-size: 2rem;
+  }
+`
+export const HomeText = styled.p`
+  font-size: 1.5rem;
   line-height: 2;
   color: ${variables.secondary};
   a {
@@ -314,6 +332,16 @@ export const HomeCharacters = styled.div`
   }
 `
 
+export const YahariBackground = styled.div`
+  img {
+    width: 100%;
+    margin: 40px 0px;
+    @media(max-width: ${variables.breakpointPhone}) {
+      display: none;
+    }
+  }
+`
+
 export const HomeEntries = styled.div`
 `
 
@@ -325,6 +353,11 @@ font-family: "GT-Walsheim-Pro-Bold";
   display: flex;
   flex-direction: row;
 }
+`
+
+export const HomeEntryLastConsumed = styled.span`
+  font-size: 1.5rem;
+  color: ${variables.lightGrey};
 `
 
 export const HomeEntrySubTitleViewMore = styled.div`
@@ -422,7 +455,11 @@ export const SeasonalFavoriteScoresWrapper = styled.div`
 `
 
 export const SeasonalFavoriteScores = styled.div`
+  border-right: 1px solid ${variables.lightGrey};
   width: 20%;
+  :last-child {
+    border-right: none;
+  }
   span {
     display: block;
     font-size: 1.4rem;
@@ -433,6 +470,9 @@ export const SeasonalFavoriteScores = styled.div`
     width: 25%;
     span {
       font-size: 1rem;
+    }
+    :nth-child(4) {
+      border-right: none;
     }
     :last-child {
       margin-top: 7px;

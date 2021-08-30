@@ -4,7 +4,7 @@ import SEO from "../components/seo"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { ButtonDefault } from "../components/common/buttons"
 import { SectionIntro, ContainerLayout } from "../components/common";
-import { OregairuVideo, IframeGradient, IntroSection, Title, Text, Avatar, SubTitleViewMore, PostTitle, PostText, ReviewPost, SubText, ActivityWrapper, ActivityScrollbar, ActivityFeed, ActivityEntry, ActivityEntryWrapper, ActivityEntryInfo, ActivityEntryTime, ActivityEntryDetails, ActivityEntryStatus, RecentActivities, RecentPosts, HomeCharacters, HomeEntries, HomeEntrySubTitle, HomeEntrySubTitleViewMore, FeedTypeToggle, FeedOption, SeasonalFavoriteAnimeWrapper, SeasonalFavorite, Season, SeasonalFavoriteText, SeasonalFavoriteScoresWrapper, SeasonalFavoriteScores } from '../components/styled/home';
+import { OregairuVideo, IframeGradient, IntroSection, HomeTitle, HomeText, Avatar, SubTitleViewMore, PostTitle, PostText, ReviewPost, SubText, ActivityWrapper, ActivityScrollbar, ActivityFeed, ActivityEntry, ActivityEntryWrapper, ActivityEntryInfo, ActivityEntryTime, ActivityEntryDetails, ActivityEntryStatus, RecentActivities, RecentPosts, HomeCharacters, YahariBackground, HomeEntries, HomeEntrySubTitle, HomeEntryLastConsumed, HomeEntrySubTitleViewMore, FeedTypeToggle, FeedOption, SeasonalFavoriteAnimeWrapper, SeasonalFavorite, Season, SeasonalFavoriteText, SeasonalFavoriteScoresWrapper, SeasonalFavoriteScores } from '../components/styled/home';
 import { CurrentEntries, CurrentEntryTitles, EntryCard, EntryProgress, EntryScore, EntryStatus } from '../components/about/style';
 import { SubTitle } from "../components/about/style";
 import { ThumbsUp } from "react-feather"
@@ -240,9 +240,6 @@ const IndexPage = () => {
   `)
 
   const allManga = data.anilist.manga.mediaList.concat(data.anilist.mangaTwo.mediaList)
-  console.log(data.anilist.currentAnime)
-
-
 
   return (
     <Layout>
@@ -257,8 +254,8 @@ const IndexPage = () => {
         <ContainerLayout>
           <IntroSection>
             <div>
-              <Title>Hi, I'm <b className="text-primary text-highlight">nekoama</b></Title>
-              <Text>Welcome to my site! Feel free to browse around and let me know what you think. </Text>
+              <HomeTitle>Hi, I'm <b className="text-primary text-highlight">nekoama</b></HomeTitle>
+              <HomeText>Welcome to my site! Feel free to browse around and let me know what you think. </HomeText>
               {/*<Link to="/about"><ButtonDefault>Learn more about me!</ButtonDefault></Link>*/}
             </div>
             {/* <Avatar fluid={data.placeholderImage.childImageSharp.fluid} alt="user photo" /> */}
@@ -276,7 +273,7 @@ const IndexPage = () => {
                       {review.media.title.userPreferred}<span><ThumbsUp /> {review.rating}</span>
                       <SubText>{timestampToMDY(review.createdAt)}</SubText>
                     </PostTitle>
-                    <PostText><span>{review.summary}</span><a href={review.siteUrl}>See full review</a></PostText>
+                    <PostText><span>{review.summary}</span><a href={review.siteUrl} target="_blank" rel="noreferrer">See full review</a></PostText>
                   </ReviewPost>
                 )
               })}
@@ -316,7 +313,7 @@ const IndexPage = () => {
                             </ActivityEntryDetails>
                           </ActivityEntryInfo>
                           <ActivityEntryTime>
-                            <time>24 hours ago</time>
+                            <time>{timestampToMD(activity.createdAt)}</time>
                           </ActivityEntryTime>
                         </ActivityEntryWrapper>
                       </ActivityEntry>
@@ -327,10 +324,12 @@ const IndexPage = () => {
             </ActivityWrapper>
           </RecentActivities>
 
-          <img src={data.anilist.YahariBackground.bannerImage} alt="OreGairu Banner" style={{ width: "100%", marginBottom: "55px", }} />
+          <YahariBackground>
+            <img class="YahariBackground" src={data.anilist.YahariBackground.bannerImage} alt="OreGairu Banner" />
+          </YahariBackground>
 
           <HomeEntries>
-            <HomeEntrySubTitle>Recently Watched <HomeEntrySubTitleViewMore>View More</HomeEntrySubTitleViewMore></HomeEntrySubTitle>
+            <HomeEntrySubTitle>Recently Watched  <HomeEntryLastConsumed>• Last Watched:</HomeEntryLastConsumed><HomeEntrySubTitleViewMore>View More</HomeEntrySubTitleViewMore></HomeEntrySubTitle>
             <CurrentEntries>
               {data.anilist.currentAnime.mediaList.slice(0, 7).map(({ media }) => {
                 return (
@@ -347,7 +346,7 @@ const IndexPage = () => {
           </HomeEntries>
 
           <HomeEntries>
-            <HomeEntrySubTitle>Recently Read <HomeEntrySubTitleViewMore>View More</HomeEntrySubTitleViewMore></HomeEntrySubTitle>
+            <HomeEntrySubTitle>Recently Read <HomeEntryLastConsumed>• Last Read:</HomeEntryLastConsumed><HomeEntrySubTitleViewMore>View More</HomeEntrySubTitleViewMore></HomeEntrySubTitle>
             <CurrentEntries>
               {allManga.slice(0, 7).map(({ media }) => {
                 return (
@@ -421,4 +420,10 @@ function timestampToMDY(timestamp) {
   const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
   const date = new Date(timestamp * 1000)
   return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`
+}
+
+function timestampToMD(timestamp) {
+  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+  const date = new Date(timestamp * 1000)
+  return `${months[date.getMonth()]} ${date.getDate()}`
 }

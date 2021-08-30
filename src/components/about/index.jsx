@@ -194,7 +194,7 @@ const About = () => {
             <div>
               <Title> Hi, I'm <b className="text-primary text-highlight">nekoama</b> </Title>
               <Text>
-                I am a <b>high school student</b> with loads of free time on my hands.
+                I am a <b>high school student</b> <s>with</s> who had loads of free time on my hands.
                 During my free time, I like to watch <b>anime</b>, read <b>manga</b>,
                 play some <b>video games</b>, or design some cool <b>websites</b>.
               </Text>

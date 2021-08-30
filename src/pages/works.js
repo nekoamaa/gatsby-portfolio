@@ -27,9 +27,9 @@ const WorkIndex = ({ data }) => {
                   <img src={review.media.bannerImage} alt="anime" class="bannerImageReviews" />
                   <PostTitle>
                     {review.media.title.userPreferred}<span><ThumbsUp /> {review.rating}</span>
-                    <SubText>Posted on {review.createdAt}</SubText>
+                    <SubText>Posted on {timestampToMDY(review.createdAt)}</SubText>
                   </PostTitle>
-                  <PostText><span>{review.body}</span><a href="#">See full review</a></PostText>
+                  <PostText><span>{review.body}</span><a href={review.siteUrl} target="_blank" rel="noreferrer">See full review</a></PostText>
                 </ReviewPost>
               )
             })}
@@ -100,6 +100,7 @@ export const pageQuery = graphql`
           ratingAmount
           createdAt
           body
+          siteUrl
         }
       }
     }  
@@ -134,3 +135,9 @@ export const pageQuery = graphql`
     }
   }
 `
+
+function timestampToMDY(timestamp) {
+  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+  const date = new Date(timestamp * 1000)
+  return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`
+}
