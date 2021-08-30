@@ -350,14 +350,20 @@ color: ${variables.primary};
 font-size: 2.1rem; 
 font-family: "GT-Walsheim-Pro-Bold";
 @media(max-width: ${variables.breakpointPhone}) {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-area: recent;
+  grid-template-areas:
+    "recent view"
+    "last last";
 }
 `
 
 export const HomeEntryLastConsumed = styled.span`
   font-size: 1.5rem;
   color: ${variables.lightGrey};
+  @media(max-width: ${variables.breakpointPhone}) {
+    grid-area: last;
+  }
 `
 
 export const HomeEntrySubTitleViewMore = styled.div`
@@ -369,8 +375,9 @@ export const HomeEntrySubTitleViewMore = styled.div`
     color: ${variables.primary};
   }
   @media(max-width: ${variables.breakpointPhone}) {
-    width: 35%;
+    width: 99%;
     text-align: right;
+    grid-area: view;
   }
 `
 
