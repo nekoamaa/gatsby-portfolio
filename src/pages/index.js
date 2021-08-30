@@ -167,6 +167,7 @@ const IndexPage = () => {
               mediaListEntry {
                 progress
                 score
+                updatedAt
                 media {
                   episodes
                   status
@@ -190,6 +191,7 @@ const IndexPage = () => {
               mediaListEntry {
                 progress
                 score
+                updatedAt
                 media {
                   chapters
                   status
@@ -213,12 +215,14 @@ const IndexPage = () => {
               mediaListEntry {
                 progress
                 score
+                updatedAt
                 media {
                   chapters
                   status
                 }
               }
               siteUrl
+              updatedAt
             }
           }
         }
@@ -240,6 +244,8 @@ const IndexPage = () => {
   `)
 
   const allManga = data.anilist.manga.mediaList.concat(data.anilist.mangaTwo.mediaList)
+
+  console.log(allManga)
 
   return (
     <Layout>
@@ -329,7 +335,7 @@ const IndexPage = () => {
           </YahariBackground>
 
           <HomeEntries>
-            <HomeEntrySubTitle>Recently Watched  <HomeEntryLastConsumed>• Last Watched:</HomeEntryLastConsumed><HomeEntrySubTitleViewMore>View More</HomeEntrySubTitleViewMore></HomeEntrySubTitle>
+            <HomeEntrySubTitle>Recently Watched  <HomeEntryLastConsumed>• Last Watched: {timestampToMD(data.anilist.currentAnime.mediaList[0].media.mediaListEntry.updatedAt)}</HomeEntryLastConsumed><HomeEntrySubTitleViewMore>View More</HomeEntrySubTitleViewMore></HomeEntrySubTitle>
             <CurrentEntries>
               {data.anilist.currentAnime.mediaList.slice(0, 7).map(({ media }) => {
                 return (
@@ -346,7 +352,7 @@ const IndexPage = () => {
           </HomeEntries>
 
           <HomeEntries>
-            <HomeEntrySubTitle>Recently Read <HomeEntryLastConsumed>• Last Read:</HomeEntryLastConsumed><HomeEntrySubTitleViewMore>View More</HomeEntrySubTitleViewMore></HomeEntrySubTitle>
+            <HomeEntrySubTitle>Recently Read <HomeEntryLastConsumed>• Last Read: {timestampToMD(allManga[0].media.mediaListEntry.updatedAt)}</HomeEntryLastConsumed><HomeEntrySubTitleViewMore>View More</HomeEntrySubTitleViewMore></HomeEntrySubTitle>
             <CurrentEntries>
               {allManga.slice(0, 7).map(({ media }) => {
                 return (
